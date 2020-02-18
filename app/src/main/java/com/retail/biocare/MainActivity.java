@@ -51,6 +51,7 @@ LeftNavAdapter leftNavAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
         bottomNavigationView=(BottomNavigationView)findViewById(R.id.navigation);
         txtTitle=(TextView)findViewById(R.id.txt_title);
         lstNave=(ListView)findViewById(R.id.lst_nave);
