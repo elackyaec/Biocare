@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Biocare</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="main_menu">
+        <item>Search Category</item>
+        <item>My Service Requests</item>
+        <item>Notifications</item>
+        <item>Chat</item>
+        <item>My Bookings</item>
+        <item>Favourites</item>
+        <item>Invite Friends</item>
+        <item>Payments</item>
+        <item>Settings</item>
+        <item>Logout</item>
+
+    </string-array>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+</resources>

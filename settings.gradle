@@ -1,0 +1,2 @@
+include ':app', ':MPChartExample', ':MPChartLib', ':MPChartLib1'
+rootProject.name='Biocare'

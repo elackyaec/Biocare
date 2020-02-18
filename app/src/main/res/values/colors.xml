@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FA5462</color>
+    <color name="colorPrimaryDark">#FF2F40</color>
+    <color name="colorAccent">#F8929B</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#8D8A8A</color>
+    <color name="lightgray">#E7E6E6</color>
+    <color name="lightblue">#40A1EE</color>
+    <color name="pink">#F8709D</color>
+    <color name="darkblue">#566DF1</color>
+    <color name="darkgreen">#1DAD9F</color>
+    <color name="green">#0BCC12</color>
+    <!--<color name="lightgray2">#FCFCFC</color>-->
+    <color name="lightgray2">#F7F4F4</color>
+    <color name="violet">#8951EB</color>
+    <color name="red">#F82929</color>
+    <color name="lightpurple">#a64dff</color>
+    <color name="orange">#F7B755</color>
+    <color name="green2">#DFF7E1</color>
+    <color name="yellow">#E9C11E</color>
+    <color name="green3">#B9F5BE</color>
+    <color name="green4">#96F5EA</color>
+    <color name="lightpink">#F7C5CA</color>
+    <color name="appgreen">#58AD69</color>
+    <color name="colorSecondary">#58AD69</color>
+    <color name="colorSecondaryDark">#589665</color>
+    <color name="colorSecondaryAccent">#69DD7F</color>
+    <color name="lightgreen">#DBF8E2</color>
+    <color name="appblue">#1788EE</color>
+
+    <color name="colorTertiary">#1788EE</color>
+    <color name="colorTertiaryDark">#077FEB</color>
+    <color name="colorTertiaryAccent">#54A7F1</color>
+
+    <color name="lightblue2">#C6DFF5</color>
+
+    <color name="selwctedbd">#f5f5f4</color>
+
+    <color name="darkred">#cc3300</color>
+    <color name="lightgreen1">#99cc00</color>
+<color name="aqua">#17C9C9</color>
+    <color name="pink2">#cc00cc</color>
+    <color name="green5">#47BB5E</color>
+</resources>
