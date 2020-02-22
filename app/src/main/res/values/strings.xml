@@ -18,4 +18,6 @@
     </string-array>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+
+    <string name="no_internet">Please check your internet connection!</string>
 </resources>

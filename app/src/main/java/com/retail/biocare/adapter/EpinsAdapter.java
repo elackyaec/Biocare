@@ -1,6 +1,7 @@
 package com.retail.biocare.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.R;
+import com.retail.biocare.activity.TransferEpinActivity;
+import com.retail.biocare.activity.TransferEpinReportActivity;
+import com.retail.biocare.activity.UnusedPinActivity;
+import com.retail.biocare.activity.UsedEpinActivity;
 import com.retail.biocare.model.DashboardModel;
 
 import java.util.List;
@@ -61,6 +66,37 @@ public class EpinsAdapter extends RecyclerView.Adapter<EpinsAdapter.DataObjectHo
 
 holder.txtNo.setText(mData.get(position).getNo());
 holder.txtName.setText(mData.get(position).getName());
+
+holder.itemView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if(position==0)
+        {
+
+        }
+        if(position==1)
+        {
+            Intent intent=new Intent(context, UnusedPinActivity.class);
+            context.startActivity(intent);
+        }
+        if(position==2)
+        {
+           /* Intent intent=new Intent(context, UnusedPinActivity.class);
+            context.startActivity(intent);*/
+        }
+        if(position==3)
+        {
+            Intent intent=new Intent(context, TransferEpinActivity.class);
+            context.startActivity(intent);
+        }
+
+        if(position==4)
+        {
+            Intent intent=new Intent(context, TransferEpinReportActivity.class);
+            context.startActivity(intent);
+        }
+    }
+});
 
 if(position==0)
 {

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:elevation="3sp"
+    android:background="@drawable/btn_bg_white2_curve"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+          >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="90dp"
+                android:src="@drawable/epins"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:tint="@color/lightblue"/>
+            <CheckBox
+                android:id="@+id/chkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt_pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10110"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"/>
+                <Button
+                    android:id="@+id/txt_transferEpin"
+                    android:layout_width="130dp"
+                    android:layout_height="25sp"
+                    android:text="Transfer"
+                    android:background="@drawable/btn_bg_lightblue_curve"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textAllCaps="false"
+
+                    android:layout_weight="1"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3sp"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/txt_pkg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PKG_009"
+        android:textColor="@color/lightblue"
+        android:layout_weight="1"
+        android:textSize="15sp"
+     />
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="12/02/2020"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:layout_weight="1"
+        android:textAlignment="textEnd"
+        />
+</LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/statuslayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:background="@drawable/btn_bg_darkgreen_curve">
+
+                    <TextView
+                        android:id="@+id/txt_sttaus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Active"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lightgray"
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_usedpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pin ID : 1234"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_amt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$300"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>
