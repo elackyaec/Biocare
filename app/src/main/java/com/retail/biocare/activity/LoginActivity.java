@@ -27,6 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static com.retail.biocare.StaticData.StaticDatas.hostURL;
+import static com.retail.biocare.StaticData.StaticDatas.loginPassword;
 import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
 
 public class LoginActivity extends AppCompatActivity {
@@ -155,6 +156,8 @@ public class LoginActivity extends AppCompatActivity {
                     userBasicData.put("Payza",c.getString("Payza"));
                     userBasicData.put("Datecreated",c.getString("Datecreated"));
                     userBasicData.put("Currency",c.getString("Currency"));
+
+                    loginPassword = String.valueOf(txtPassword.getText());
 
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();

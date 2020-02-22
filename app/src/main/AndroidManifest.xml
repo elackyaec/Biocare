@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".LoginTimingActivity"></activity>
+        <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +34,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.ManageBankActivity" />
         <activity android:name=".activity.ChangeTransactionPasswordActivity" />
         <activity android:name=".activity.AddReviewActivity" />
@@ -44,14 +45,18 @@
         <activity android:name=".activity.AddressListActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.ProfileDetailsActivity" />
-        <activity android:name=".activity.UsedEpinActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.UnusedPinActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.TransferEpinActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.TransferEpinReportActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.UsedEpinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.UnusedPinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TransferEpinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TransferEpinReportActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

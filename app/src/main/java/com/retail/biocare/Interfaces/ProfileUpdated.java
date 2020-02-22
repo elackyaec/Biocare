@@ -1,6 +1,8 @@
 package com.retail.biocare.Interfaces;
 
-public interface ProfileUpdated {
+import java.io.Serializable;
+
+public interface ProfileUpdated extends Serializable {
 
     void onProfileUpdated();
 

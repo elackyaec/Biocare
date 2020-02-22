@@ -1,14 +1,33 @@
 package com.retail.biocare.activity;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.retail.biocare.Models.TransactionModels;
 import com.retail.biocare.R;
+import com.retail.biocare.utils.ExtractfromReply;
+
+import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
 
 public class ChangeTransactionPasswordActivity extends AppCompatActivity {
+
+    private static final String TAG = "ChangeTransactionPasswo";
+
+    private EditText txtNewPassword, txtConfirmNewPassword;
+
+    TransactionModels transactionModels;
+
+    private String confirmNewPassword;
+    private String CustomerID, TransactionPassword, MemberId;
 
 
     @Override
@@ -23,5 +42,88 @@ public class ChangeTransactionPasswordActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        txtNewPassword = findViewById(R.id.txtNewPassword);
+        txtConfirmNewPassword = findViewById(R.id.txtConfirmNewPassword);
+
+        findViewById(R.id.btnUpdate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                CustomerID = userBasicData.get("UserID");
+                TransactionPassword = String.valueOf(txtNewPassword.getText());
+                confirmNewPassword = String.valueOf(txtConfirmNewPassword.getText());
+
+                if (TransactionPassword.isEmpty()){
+                    txtNewPassword.requestFocus();
+                    txtNewPassword.setError("Required");
+                }
+
+                else if (confirmNewPassword.isEmpty()){
+                    txtConfirmNewPassword.requestFocus();
+                    txtConfirmNewPassword.setError("Required");
+                }
+
+                else if(!TransactionPassword.equals(confirmNewPassword))
+                {
+                    txtConfirmNewPassword.requestFocus();
+                    txtConfirmNewPassword.setError("Passwords donot match");
+                }
+
+                else {
+
+                    transactionModels = new TransactionModels(CustomerID, TransactionPassword, "0");
+
+                    String jsonData = "["+new Gson().toJson(transactionModels)+"]";
+                    Log.d(TAG, "onClick: "+jsonData);
+
+                    new UpdateTransactionPassword().execute(jsonData);
+
+                }
+
+
+            }
+        });
+
+
+    }
+
+
+
+    private class UpdateTransactionPassword extends AsyncTask<String, String, String>{
+
+        ProgressDialog progressDialog = new ProgressDialog(ChangeTransactionPasswordActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog.setMessage("Please wait");
+            progressDialog.show();
+
+
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            progressDialog.dismiss();
+
+            Log.d(TAG, "onPostExecute: "+s);
+
+            if (!s.equalsIgnoreCase("NODATA"))
+            {
+                Toast.makeText(ChangeTransactionPasswordActivity.this, "Password updated successfully", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return new ExtractfromReply().performPost("WSMember","ChangeTranpwd","jsonString="+strings[0]+"&KeyValue=0");
+        }
     }
 }

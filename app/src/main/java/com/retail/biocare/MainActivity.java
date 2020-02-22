@@ -9,16 +9,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -26,10 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.retail.biocare.Interfaces.BankDetailsListener;
 import com.retail.biocare.Interfaces.ProfileUpdated;
+import com.retail.biocare.StaticData.StaticDatas;
+import com.retail.biocare.activity.ManageBankActivity;
 import com.retail.biocare.adapter.LeftNavAdapter;
-import com.retail.biocare.fragment.AddressFragment;
-import com.retail.biocare.fragment.AdminFragment;
 import com.retail.biocare.fragment.DashboardFragment;
 import com.retail.biocare.fragment.FragmentEpins;
 import com.retail.biocare.fragment.FragmentGenalogy;
@@ -49,10 +46,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.retail.biocare.StaticData.StaticDatas.bankDetailsMap;
 import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
 import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, ProfileUpdated {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, ProfileUpdated, BankDetailsListener {
 
 
     private static final String TAG = "MainActivity";
@@ -71,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     RelativeLayout relativeLayoutMenu;
 
     //Interface
-    ProfileUpdated profileUpdated;
+    public static ProfileUpdated profileUpdated;
+    public static BankDetailsListener bankDetailsListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +85,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         profileUpdated=this;
         profileUpdated.onProfileUpdated();
+
+        bankDetailsListener=this;
+        bankDetailsListener.onBankDataChange();
 
         beginTransction(new DashboardFragment());
         setupDrawer();
@@ -242,6 +244,63 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    @Override
+    public void onBankDataChange() {
+        new GetBankDetails().execute("");
+    }
+
+
+    @Override
+    public void onProfileUpdated() {
+        new GetProfileDetails().execute(userBasicData.get("UserID"));
+    }
+
+
+
+    private class GetBankDetails extends AsyncTask<String, String, String>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            bankDetailsMap.clear();
+
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            Log.d(TAG, "onPostExecute: Response: "+s);
+            try{
+
+                JSONArray jsonArray = new JSONArray(s);
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                bankDetailsMap.put("Customername",jsonObject.getString("Customername"));
+                bankDetailsMap.put("AccountNumber",jsonObject.getString("AccountNumber"));
+                bankDetailsMap.put("BankName",jsonObject.getString("BankName"));
+                bankDetailsMap.put("Branch",jsonObject.getString("Branch"));
+                bankDetailsMap.put("AccountType",jsonObject.getString("AccountType"));
+                bankDetailsMap.put("BankCode",jsonObject.getString("BankCode"));
+                bankDetailsMap.put("Email",jsonObject.getString("Email"));
+
+            }catch (Exception e){
+
+                Log.e(TAG, "onPostExecute: JSON: ",e );
+            }
+
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return new ExtractfromReply().performPost("WSMember","MemberbankSearch","MemberId="+ StaticDatas.userBasicData.get("UserID"));
+        }
+    }
+
 
     private class GetProfileDetails extends AsyncTask<String, String, String>{
 
@@ -286,6 +345,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 userProfileData.put("Email",c.getString("Email"));
 
 
+                try {
+                    FragmentProfile.txtName.setText(userProfileData.get("Firstname")+" "+userProfileData.get("Lastname"));
+                }
+                catch (Exception e){
+                    Log.e(TAG, "Text View onPostExecute: ", e);
+                }
 
             } catch (JSONException e) {
                 Log.e(TAG, "onPostExecute: ",e );
@@ -301,14 +366,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             return new ExtractfromReply().performPost("WSMember","MemberSearch","MemberId="+strings[0]);
         }
     }
-
-    @Override
-    public void onProfileUpdated() {
-
-        new GetProfileDetails().execute(userBasicData.get("UserID"));
-
-    }
-
 
 
 

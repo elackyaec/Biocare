@@ -2,9 +2,9 @@ package com.retail.biocare.Models;
 
 public class UserDetailsModel {
 
-    private String CustomerID, FirstName, LastName, DateofBirth, Gender, Marital, address1, address2, city, state, zip, country, Phone, Email, Nominee, Relation, NomineeaAge, KeyValue;
+    private String CustomerID, FirstName, LastName, DateofBirth, Gender, Marital, address1, address2, city, state, zip, country, Phone, Email, Nominee, Relation, NomineeaAge;
 
-    public UserDetailsModel(String customerID, String firstName, String lastName, String dateofBirth, String gender, String marital, String address1, String address2, String city, String state, String zip, String country, String phone, String email, String nominee, String relation, String nomineeaAge, String keyValue) {
+    public UserDetailsModel(String customerID, String firstName, String lastName, String dateofBirth, String gender, String marital, String address1, String address2, String city, String state, String zip, String country, String phone, String email, String nominee, String relation, String nomineeaAge) {
         CustomerID = customerID;
         FirstName = firstName;
         LastName = lastName;
@@ -22,7 +22,6 @@ public class UserDetailsModel {
         Nominee = nominee;
         Relation = relation;
         NomineeaAge = nomineeaAge;
-        KeyValue = keyValue;
     }
 
 
@@ -94,9 +93,6 @@ public class UserDetailsModel {
         return NomineeaAge;
     }
 
-    public String getKeyValue() {
-        return KeyValue;
-    }
 
 
 }

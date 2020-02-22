@@ -40,6 +40,8 @@ public class FragmentProfile extends Fragment {
 
     ProfileUpdated profileUpdated;
 
+    public static TextView txtName;
+
     public FragmentProfile(ProfileUpdated profileUpdated) {
         this.profileUpdated = profileUpdated;
     }
@@ -50,13 +52,14 @@ public class FragmentProfile extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        TextView txtName = rootView.findViewById(R.id.txtName);
-        txtName.setText(StaticDatas.userBasicData.get("Name"));
+        txtName = rootView.findViewById(R.id.txtName);
+        //txtName.setText(StaticDatas.userBasicData.get("Name"));
+        txtName.setText(userProfileData.get("Firstname")+" "+userProfileData.get("Lastname"));
 
         ImageView imgProfile = rootView.findViewById(R.id.imgProfile);
 
         try {
-            Glide.with(getContext()).load(hostURL+userBasicData.get("Photo").substring(3)).signature(new ObjectKey(userProfileData.get("DateModified"))).into(imgProfile);
+            Glide.with(getContext()).load(hostURL+userBasicData.get("Photo").substring(3)).signature(new ObjectKey(userProfileData.get("DateModified"))).placeholder(R.drawable.profile).into(imgProfile);
         }
         catch (Exception e){
             Log.e(TAG, "onCreateView: ",e );
@@ -65,7 +68,8 @@ public class FragmentProfile extends Fragment {
         rootView.findViewById(R.id.layoutProfileDetails).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ProfileDetailsActivity.class));
+                Intent intent =new Intent(getContext(), ProfileDetailsActivity.class);
+                startActivity(intent);
             }
         });
 
