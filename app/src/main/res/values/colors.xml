@@ -30,6 +30,8 @@
     <color name="colorSecondaryAccent">#69DD7F</color>
     <color name="lightgreen">#DBF8E2</color>
     <color name="appblue">#1788EE</color>
+    <color name="purple">#800080</color>
+
 
     <color name="colorTertiary">#1788EE</color>
     <color name="colorTertiaryDark">#077FEB</color>
@@ -44,4 +46,7 @@
 <color name="aqua">#17C9C9</color>
     <color name="pink2">#cc00cc</color>
     <color name="green5">#47BB5E</color>
+
+    <color name="textblue">#1a1665</color>
+
 </resources>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/header"
+        android:elevation="3dp"
+        android:paddingLeft="5dp">
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/back_icon"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            android:id="@+id/btn_back"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="KYC Verification"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/btn_bg_white2_curve">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="KYC Verification"
+    android:textSize="17sp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:textColor="@color/black"
+    android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_margin="10dp"
+        android:background="@color/lightgray"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To comply with regulation each participant \n will have to go through identity verfication \n (KYC/AML)to prevent fraud causes"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Please complete our fast and secure  \n  verification process to participate  \n   in our token sale."
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/document"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="You have not submitted necessary \n documents to verify your identity"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="It would be great if you please \n submit the form. \n \nIf you have any question please feel \n free  to contact our support team."
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/btn_kyc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg_blue_curve"
+        android:text="CLICK TO COMPLETE YOUR KYC"
+        android:textColor="@color/white"
+        android:layout_margin="10dp"
+
+        android:layout_weight="1"/>
+</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="5dp"
+        android:id="@+id/header"
+        android:elevation="3dp">
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgBack"
+            android:layout_centerInParent="true"
+            android:src="@drawable/back_icon"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Rate Us"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="17sp"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    android:textAlignment="center"
+    android:text="How did you like our service?"/>
+
+    <ImageView
+        android:id="@+id/img_rating"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/rating"/>
+
+    <RatingBar
+        android:id="@+id/ratingStars"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:isIndicator="false"
+        android:max="5"
+        android:numStars="5"
+        android:rating="0"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:stepSize="1"
+        android:theme="@style/RatingBar" />
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/purple"
+        android:textAlignment="center"
+        android:text="Worst"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:layout_marginTop="10dp"
+    android:textColor="@color/black"
+    android:textAlignment="center"
+    android:visibility="gone"
+
+    android:text="Write a Review"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_restaurant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Restaurant"/>
+        <RadioButton
+            android:id="@+id/radio_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Food"/>
+    </RadioGroup>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_bg_darkblue_outline">
+        <EditText
+            android:id="@+id/edt_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="Tell us what we should improve?"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:textColorHint="@color/gray"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+<Button
+    android:id="@+id/btn_submit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:text="Submit"
+    android:textSize="18sp"
+    android:layout_alignParentBottom="true"
+    android:textColor="@color/white"/>
+</RelativeLayout>

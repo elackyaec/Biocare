@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.SpannableString;
@@ -33,6 +34,9 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.retail.biocare.R;
 import com.retail.biocare.adapter.DashboardAdapter;
+import com.retail.biocare.adapter.NewlyOpenedAdapter;
+import com.retail.biocare.adapter.PopularBrandsRecyclerAdapter;
+import com.retail.biocare.adapter.TopPicksRecyclerAdapter;
 import com.retail.biocare.model.DashboardModel;
 import com.retail.biocare.utils.ColorArray;
 
@@ -102,6 +106,31 @@ DashboardAdapter dashboardAdapter;
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         chart =view. findViewById(R.id.chart1);
         recyclerView=view.findViewById(R.id.recyclerview);
+
+        initChart();
+
+        RecyclerView recycler_TopPicks = view.findViewById(R.id.recycler_TopPicks);
+        TopPicksRecyclerAdapter topPicksRecyclerAdapter = new TopPicksRecyclerAdapter(getContext());
+        recycler_TopPicks.setAdapter(topPicksRecyclerAdapter);
+        recycler_TopPicks.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL, false));
+
+        RecyclerView recycler_popularBrands = view.findViewById(R.id.recycler_popularBrands);
+        PopularBrandsRecyclerAdapter popularBrandsRecyclerAdapter = new PopularBrandsRecyclerAdapter(getContext());
+        recycler_popularBrands.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        recycler_popularBrands.setAdapter(popularBrandsRecyclerAdapter);
+
+        RecyclerView recyclerNewlyOpened = view.findViewById(R.id.recyclerNewlyOpened);
+        NewlyOpenedAdapter newlyOpenedAdapter = new NewlyOpenedAdapter(getContext());
+        recyclerNewlyOpened.setAdapter(newlyOpenedAdapter);
+        recyclerNewlyOpened.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+
+        return view;
+    }
+
+
+    void initChart(){
         chart.setUsePercentValues(false);
         chart.getDescription().setEnabled(false);
         chart.setExtraOffsets(5, 10, 5, 5);
@@ -130,7 +159,7 @@ DashboardAdapter dashboardAdapter;
         // chart.setDrawUnitsInChart(true);
 
         // add a selection listener
-     //   chart.setOnChartValueSelectedListener(getContext());
+        //   chart.setOnChartValueSelectedListener(getContext());
         chart.animateY(1400, Easing.EaseInOutQuad);
         // chart.spin(2000, 0, 360);
 
@@ -152,8 +181,8 @@ DashboardAdapter dashboardAdapter;
         chart.setDrawEntryLabels(false);
 
         // entry label styling
-    //    chart.setEntryLabelColor(Color.WHITE);
-      //  chart.setEntryLabelTextSize(12f);
+        //    chart.setEntryLabelColor(Color.WHITE);
+        //  chart.setEntryLabelTextSize(12f);
         setData(3,10);
 
         dashboardModels.add(new DashboardModel(R.drawable.totadmin,"1","Total\n Admin"));
@@ -168,13 +197,8 @@ DashboardAdapter dashboardAdapter;
         dashboardModels.add(new DashboardModel(R.drawable.usedepin,"13","Total Used Epin"));
         dashboardModels.add(new DashboardModel(R.drawable.unusedepin,"10","Total Unused Epin"));
         dashboardModels.add(new DashboardModel(R.drawable.totadmin,"100","Total\nEpins"));
-
-        dashboardAdapter=new DashboardAdapter(getContext(),dashboardModels);
-        recyclerView.setAdapter(dashboardAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-
-        return view;
     }
+
     private void setData(int count, float range) {
         ArrayList<PieEntry> entries = new ArrayList<>();
 

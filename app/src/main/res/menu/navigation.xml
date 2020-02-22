@@ -9,26 +9,25 @@
       />
   <item
       android:id="@+id/nav_feeds"
-      android:icon="@drawable/home_menu"
+      android:icon="@drawable/rupee"
       android:visible="true"
-      android:title="Feed" />
+      android:title="Wallet" />
 
   <item
       android:id="@+id/nav_msg"
-      android:icon="@drawable/home_menu"
+      android:icon="@drawable/epins"
       android:visible="true"
-
-      android:title="Messages" />
+      android:title="Epins" />
   <item
-      android:id="@+id/nav_cart"
-      android:icon="@drawable/home_menu"
-      android:title="Cart" />
+      android:id="@+id/nav_genealogy"
+      android:icon="@drawable/genealogy"
+      android:title="Genealogy" />
 
 
 
   <item
       android:id="@+id/nav_account"
-      android:icon="@drawable/home_menu"
+      android:icon="@drawable/login_image"
       android:title="Account" />
 
 

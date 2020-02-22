@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="15dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:civ_border_width="2dp"
+        android:layout_gravity="center_horizontal"
+        app:civ_border_color="@color/gray"
+        android:src="@drawable/freshjuices"
+        android:id="@+id/imgRestImages"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Rest Name"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="true"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:id="@+id/txtRestName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:textSize="12sp"
+        android:text="25 mins"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/txtDeliveryTime"/>
+
+
+</LinearLayout>

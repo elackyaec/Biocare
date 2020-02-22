@@ -27,14 +27,14 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
 
-                    intent = new Intent(SplashActivity.this, MainActivity.class);
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
 
 
 
             }
-        }, 3000);
+        }, 2000);
     }
 
 
