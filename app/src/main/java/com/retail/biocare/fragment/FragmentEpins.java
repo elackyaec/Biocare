@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.R;
+import com.retail.biocare.activity.BuyEpinActivity;
 import com.retail.biocare.activity.TransferEpinActivity;
 import com.retail.biocare.activity.TransferEpinReportActivity;
 import com.retail.biocare.activity.UnusedPinActivity;
@@ -76,8 +77,8 @@ LinearLayout usedpinslayout,transferepinslayout,buyepinslayout,unusedpinslayout,
         buyepinslayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Intent intent=new Intent(getContext(), TransferEpinActivity.class);
-                startActivity(intent);*/
+                Intent intent=new Intent(getContext(), BuyEpinActivity.class);
+                startActivity(intent);
             }
         });
 

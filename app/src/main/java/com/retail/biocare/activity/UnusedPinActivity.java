@@ -3,6 +3,7 @@ package com.retail.biocare.activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -94,6 +95,7 @@ public class UnusedPinActivity extends AppCompatActivity {
                     JSONArray jsonArray = new JSONArray(s);
                     for(int i=0;i<jsonArray.length();i++)
                     {
+
                         JSONObject c=jsonArray.getJSONObject(i);
 
                         usedEpinModels.add(new UnusedEpinModel(c.getString("PinID"),c.getString("PinNumber"),c.getString("Amount"),c.getString("PackageName"),c.getString("CreatedDate"),c.getString("PaidStatus")));
@@ -104,9 +106,23 @@ public class UnusedPinActivity extends AppCompatActivity {
                             usedEpinsAdapter=new UnusedEpinsAdapter(UnusedPinActivity.this,usedEpinModels);
                             recyclerView.setAdapter(usedEpinsAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(UnusedPinActivity.this));
+                            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                                @Override
+                                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                                    super.onScrollStateChanged(recyclerView, newState);
+
+                                    if (!recyclerView.canScrollVertically(1)) {
+
+                                        //TODO do page index calulation
+                                    //    Toast.makeText(UnusedPinActivity.this, "Last", Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+                            });
                         }
                         else
                         {
+                            //Log.e("TAG","ELSE");
                             txtNotFound.setVisibility(View.VISIBLE);
                             recyclerView.setVisibility(View.GONE);
                         }
@@ -116,7 +132,6 @@ public class UnusedPinActivity extends AppCompatActivity {
 
 
                 } catch (Exception e) {
-
                 }
 
             }

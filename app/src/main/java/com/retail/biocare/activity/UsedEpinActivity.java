@@ -36,7 +36,7 @@ public class UsedEpinActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<UsedEpinModel> usedEpinModels;
     UsedEpinsAdapter usedEpinsAdapter;
-    String pageindex;
+    String pageindex="1";
     TextView txtNotFound;
 
     @Override
@@ -45,9 +45,8 @@ public class UsedEpinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_usedepin);
 
         layoutBack = (RelativeLayout) findViewById(R.id.layout_back);
-        recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
-        txtNotFound=(TextView)findViewById(R.id.txt_notfound);
-
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        txtNotFound = (TextView) findViewById(R.id.txt_notfound);
 
 
         layoutBack.setOnClickListener(new View.OnClickListener() {
@@ -56,16 +55,14 @@ public class UsedEpinActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-if(GlobalMethods.isNetworkAvailable(getApplicationContext()))
-{
-new GetUsedEpin().execute();
-}
-else
-{
-    Toast.makeText(getApplicationContext(),getString(R.string.no_internet),Toast.LENGTH_SHORT).show();
-}
+        if (GlobalMethods.isNetworkAvailable(getApplicationContext())) {
+            new GetUsedEpin().execute();
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
+        }
 
     }
+
     private class GetUsedEpin extends AsyncTask<String, String, String> {
 
         ProgressDialog progressDialog = new ProgressDialog(UsedEpinActivity.this);
@@ -76,7 +73,7 @@ else
 
             progressDialog.setMessage("Please wait");
             progressDialog.show();
-usedEpinModels=new ArrayList<>();
+            usedEpinModels = new ArrayList<>();
         }
 
         @Override
@@ -85,43 +82,49 @@ usedEpinModels=new ArrayList<>();
 
             progressDialog.dismiss();
 
-            if (s.equals("NODATA")){
+            if (s.equals("NODATA")) {
 
 
-            }
-
-            else{
+            } else {
 
                 try {
 
                     JSONArray jsonArray = new JSONArray(s);
-                    for(int i=0;i<jsonArray.length();i++)
-                    {
-                        JSONObject c=jsonArray.getJSONObject(i);
-                        userBasicData.put("PinID",c.getString("PinID"));
-                        userBasicData.put("PinNumber",c.getString("PinNumber"));
-                        userBasicData.put("Amount",c.getString("Amount"));
-                        userBasicData.put("UsedDate",c.getString("UsedDate"));
-                        userBasicData.put("UsedID",c.getString("UsedID"));
-                        userBasicData.put("Name",c.getString("Name"));
-                        userBasicData.put("PackageName",c.getString("PackageName"));
-                        userBasicData.put("PaidStatus",c.getString("PaidStatus"));
-usedEpinModels.add(new UsedEpinModel(c.getString("Username"),c.getString("PinNumber"),c.getString("Amount"),c.getString("Name"),c.getString("PackageName"),c.getString("UsedDate"),c.getString("PaidStatus")));
+                    for (int i = 0; i < jsonArray.length(); i++) {
 
-if(usedEpinModels.size()>0)
-{
-    txtNotFound.setVisibility(View.GONE);
-    usedEpinsAdapter=new UsedEpinsAdapter(UsedEpinActivity.this,usedEpinModels);
-    recyclerView.setAdapter(usedEpinsAdapter);
-    recyclerView.setLayoutManager(new LinearLayoutManager(UsedEpinActivity.this));
+                        JSONObject c = jsonArray.getJSONObject(i);
+                        userBasicData.put("PinID", c.getString("PinID"));
+                        userBasicData.put("PinNumber", c.getString("PinNumber"));
+                        userBasicData.put("Amount", c.getString("Amount"));
+                        userBasicData.put("UsedDate", c.getString("UsedDate"));
+                        userBasicData.put("UsedID", c.getString("UsedID"));
+                        userBasicData.put("Name", c.getString("Name"));
+                        userBasicData.put("PackageName", c.getString("PackageName"));
+                        userBasicData.put("PaidStatus", c.getString("PaidStatus"));
+                        usedEpinModels.add(new UsedEpinModel(c.getString("Username"), c.getString("PinNumber"), c.getString("Amount"), c.getString("Name"), c.getString("PackageName"), c.getString("UsedDate"), c.getString("PaidStatus")));
 
+                        if (usedEpinModels.size() > 0) {
+                            txtNotFound.setVisibility(View.GONE);
+                            usedEpinsAdapter = new UsedEpinsAdapter(UsedEpinActivity.this, usedEpinModels);
+                            recyclerView.setAdapter(usedEpinsAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(UsedEpinActivity.this));
+                            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                                @Override
+                                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                                    super.onScrollStateChanged(recyclerView, newState);
 
-}
-else
-{
-    txtNotFound.setVisibility(View.VISIBLE);
-    recyclerView.setVisibility(View.GONE);
-}
+                                    if (!recyclerView.canScrollVertically(1)) {
+                                      //  Toast.makeText(UsedEpinActivity.this, "Last", Toast.LENGTH_SHORT).show();
+//pageindex+=1;
+//new GetUsedEpin().execute();  //TODO do page index calulation
+                                    }
+                                }
+                            });
+
+                        } else {
+                            txtNotFound.setVisibility(View.VISIBLE);
+                            recyclerView.setVisibility(View.GONE);
+                        }
 
 
                     }
@@ -137,7 +140,7 @@ else
 
         @Override
         protected String doInBackground(String... strings) {
-            return new ExtractfromReply().performPost("WSMember","GetUsedpin","MemberId="+userBasicData.get("UserID")+"&PageIndex="+"1");
+            return new ExtractfromReply().performPost("WSMember", "GetUsedpin", "MemberId=" + userBasicData.get("UserID") + "&PageIndex=" + pageindex);
 
 
         }

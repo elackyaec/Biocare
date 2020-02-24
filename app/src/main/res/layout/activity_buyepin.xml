@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/layout_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/imgBack"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_icon"
+                android:tint="@color/white" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Buy EPins"
+            android:textColor="@color/white"
+
+            android:textSize="17sp"
+
+            android:textStyle="bold" />
+
+
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/header"
+        android:background="@color/colorPrimary">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/btn_bg_white2_curve"
+        android:orientation="vertical"
+        android:elevation="3sp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/money"
+                android:tint="@color/colorPrimary"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/txt_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$3000"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Available E - Wallet Balance"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username:"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/edt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Package Name:"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_gravity="center"
+                android:background="@null"
+android:layout_marginTop="10dp"
+                android:dropDownVerticalOffset="30dp"
+                android:textSize="15sp"
+                android:theme="@style/AppTheme.Spinner" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity:"
+                        android:textStyle="bold"
+
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgminus"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/minus"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
+
+
+                            android:tint="@color/red"/>
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/edittext_bg_curve_new"
+                            android:focusable="true"
+                            android:layout_marginTop="10dp"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+
+
+
+                            <TextView
+                                android:id="@+id/txtvalue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:gravity="center"
+                                android:text="1"
+
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="15sp" />
+
+
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/imgplus"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/plus"
+                            android:layout_gravity="center"
+                            android:tint="@color/green"
+                            android:layout_marginTop="4dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Package Amount:"
+                        android:layout_marginTop="15dp"
+                        android:textStyle="bold"
+
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/txt_pkgamt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Package Amount"
+                        android:textSize="15sp"
+                        android:inputType="number"
+                        android:layout_marginTop="30dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/lightgray"
+                        android:layout_marginTop="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amount Payable:"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txt_amtpayable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Amount Payable"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBuy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg_cp_curve"
+                    android:text="Buy Epin"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+
+                   />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg_gray_curve"
+                    android:text="Cancel"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                   />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

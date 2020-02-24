@@ -67,7 +67,7 @@ public class ChangeTransactionPasswordActivity extends AppCompatActivity {
                 else if(!TransactionPassword.equals(confirmNewPassword))
                 {
                     txtConfirmNewPassword.requestFocus();
-                    txtConfirmNewPassword.setError("Passwords donot match");
+                    txtConfirmNewPassword.setError("Passwords do not match");
                 }
 
                 else {

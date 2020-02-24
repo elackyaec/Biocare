@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +54,7 @@ EditText edtUserid,edtUsername;
 CheckBox checkBoxAll;
 String checkstatus="";
     TextView txtNotFound;
+    LinearLayout checkboxlayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ String checkstatus="";
 checkBoxAll=(CheckBox)findViewById(R.id.checkbox_all);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
         txtNotFound=(TextView)findViewById(R.id.txt_notfound);
+        checkboxlayout=(LinearLayout)findViewById(R.id.checkboxlayout);
 
         layoutBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,6 +190,8 @@ edtUsername=(EditText)transferDialog.findViewById(R.id.edt_username);
                         if(transferEpinModels.size()>0)
                         {
                             txtNotFound.setVisibility(View.GONE);
+                            checkboxlayout.setVisibility(View.VISIBLE);
+
                             transferEpinsAdapter = new TransferEpinsAdapter(TransferEpinActivity.this, transferEpinModels,checkstatus);
                             recyclerView.setAdapter(transferEpinsAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(TransferEpinActivity.this));
@@ -195,6 +200,7 @@ edtUsername=(EditText)transferDialog.findViewById(R.id.edt_username);
                         {
                             txtNotFound.setVisibility(View.VISIBLE);
                             recyclerView.setVisibility(View.GONE);
+                            checkboxlayout.setVisibility(View.GONE);
                         }
 
 

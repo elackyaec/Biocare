@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.retail.biocare.Interfaces.BankDetailsListener;
 import com.retail.biocare.Interfaces.ProfileUpdated;
 import com.retail.biocare.StaticData.StaticDatas;
+import com.retail.biocare.activity.LoginActivity;
 import com.retail.biocare.activity.ManageBankActivity;
 import com.retail.biocare.adapter.LeftNavAdapter;
 import com.retail.biocare.fragment.DashboardFragment;
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     DrawerLayout drawerLayoutNew;
     ClassLeftDrawer item;
     RelativeLayout relativeLayoutMenu;
+    AlertDialog.Builder builder;
 
     //Interface
     public static ProfileUpdated profileUpdated;
@@ -77,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
+        builder = new AlertDialog.Builder(MainActivity.this);
+
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         txtTitle = (TextView) findViewById(R.id.txt_title);
         lstNave = (ListView) findViewById(R.id.lst_nave);
@@ -236,8 +243,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             case 4:
-                /*beginTransction(new FragmentGenalogy());
-                txtTitle.setText("Ex");*/
+                //Setting message manually and performing action on button click
+                builder.setMessage("Do you want to Logout ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+dialog.cancel();
+                                Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+                alert.setTitle("Logout");
+                alert.show();
                 break;
 
         }

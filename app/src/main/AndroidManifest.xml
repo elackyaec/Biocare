@@ -57,6 +57,10 @@
         <activity
             android:name=".activity.TransferEpinReportActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BuyEpinActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

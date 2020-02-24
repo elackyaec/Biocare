@@ -291,7 +291,7 @@
                         android:textAlignment="center"
                         android:layout_weight="1"
                         android:layout_marginTop="5dp"
-                        android:text="UnUsed EPins"/>
+                        android:text="Unused EPins"/>
                 </LinearLayout>
 
                 <LinearLayout
