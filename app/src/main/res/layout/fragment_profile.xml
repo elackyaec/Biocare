@@ -276,7 +276,7 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
                     android:background="@color/white"
-                    android:id="@+id/linear_chat">
+                    android:id="@+id/linear_LoginTiming">
 
 
 

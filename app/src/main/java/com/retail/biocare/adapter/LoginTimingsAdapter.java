@@ -41,7 +41,7 @@ public class LoginTimingsAdapter extends RecyclerView.Adapter<LoginTimingsAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return loginTimingData.size();
     }
 
     public class LoginTimingViewHolder extends RecyclerView.ViewHolder {

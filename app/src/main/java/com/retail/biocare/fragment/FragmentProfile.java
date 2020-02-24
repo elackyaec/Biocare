@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.signature.ObjectKey;
 import com.retail.biocare.ChangePasswordActivity;
 import com.retail.biocare.Interfaces.ProfileUpdated;
+import com.retail.biocare.LoginTimingActivity;
 import com.retail.biocare.R;
 import com.retail.biocare.StaticData.StaticDatas;
 import com.retail.biocare.activity.AddReviewActivity;
@@ -84,6 +85,13 @@ public class FragmentProfile extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), ChangePasswordActivity.class));
+            }
+        });
+
+        rootView.findViewById(R.id.linear_LoginTiming).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), LoginTimingActivity.class));
             }
         });
 
