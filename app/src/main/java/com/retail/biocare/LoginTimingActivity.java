@@ -85,6 +85,8 @@ public class LoginTimingActivity extends AppCompatActivity {
 
                         String dateString = sdf1.format(date);
 
+                        //
+
                         loginTimingDetails.add(new LoginTimingsModels(c.getString("Username"), c.getString("IPAddress"), dateString));
                     }
 
