@@ -1,9 +1,11 @@
 package com.retail.biocare.adapter;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +17,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.R;
 import com.retail.biocare.activity.TransferEpinActivity;
+import com.retail.biocare.activity.TransferEpinReportActivity;
 import com.retail.biocare.model.TransferEpinModel;
+import com.retail.biocare.model.TransferReportEpinModel;
 import com.retail.biocare.model.UsedEpinModel;
+import com.retail.biocare.utils.ExtractfromReply;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
 
 
 public class TransferEpinsAdapter extends RecyclerView.Adapter<TransferEpinsAdapter.DataObjectHolder> {
@@ -30,8 +43,8 @@ public class TransferEpinsAdapter extends RecyclerView.Adapter<TransferEpinsAdap
     Context context;
     List<TransferEpinModel> mData;
     Dialog transferDialog;
-    String sttaus;
-
+    String sttaus,pinno;
+   int[] arl ;
 
     public TransferEpinsAdapter(Context context, List<TransferEpinModel> mData,String sttaus) {
         this.context = context;
@@ -74,13 +87,24 @@ CheckBox checkBox;
 
     @Override
     public void onBindViewHolder(final DataObjectHolder holder, final int position) {
-        holder.txtPinID.setText(mData.get(position).getPinid());
+        holder.txtPinID.setText("Pin ID : "+mData.get(position).getPinid());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtPkg.setText(mData.get(position).getPkgname());
-        holder.txtStatus.setText(mData.get(position).getStatus());
-        holder.txtPin.setText(mData.get(position).getPinno());
-        holder.txtAmt.setText(mData.get(position).getAmt());
 
+        holder.txtPin.setText(mData.get(position).getPinno());
+        holder.txtAmt.setText("₹"+mData.get(position).getAmt());
+        pinno=mData.get(position).getPinno();
+
+        if(mData.get(position).getStatus().equals("1"))
+        {
+            holder.bglayout.setBackgroundResource(R.drawable.btn_bg_darkgreen_curve);
+            holder.txtStatus.setText("Paid");
+        }
+        else
+        {
+            holder.bglayout.setBackgroundResource(R.drawable.btn_bg_red_curve);
+            holder.txtStatus.setText("Unpaid");
+        }
         if(sttaus.equals("1"))
         {
             holder.checkBox.setChecked(true);
@@ -121,10 +145,52 @@ CheckBox checkBox;
         btnDialogTransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               new TransferEpin().execute();
+            }
+        });
+    }
+    private class TransferEpin extends AsyncTask<String, String, String> {
+
+        ProgressDialog progressDialog = new ProgressDialog(context);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog.setMessage("Please wait");
+            progressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            progressDialog.dismiss();
+
+            if (s.equals("NODATA")){
+
+
+            }
+else if(s.equals("1"))
+            {
                 Toast.makeText(context,"Pin Transferred Successfully",Toast.LENGTH_SHORT).show();
                 transferDialog.dismiss();
             }
-        });
+            else{
+
+
+                Toast.makeText(context,"Pin not transferred",Toast.LENGTH_SHORT).show();
+
+            }
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return new ExtractfromReply().performPost("WSMember","EpinTransactions","MemberId="+userBasicData.get("UserID")+"&jsonString="+pinno);
+
+
+        }
     }
 
     @Override
