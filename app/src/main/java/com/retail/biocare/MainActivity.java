@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     BottomNavigationView bottomNavigationView;
     TextView txtTitle;
+
+
+
     List<ClassLeftDrawer> rowItems;
 
     public static final Integer[] images = {R.drawable.receipt_png, R.drawable.messages_png, R.drawable.purchases_png, R.drawable.income_png, R.drawable.shutdown_icon};
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ClassLeftDrawer item;
     RelativeLayout relativeLayoutMenu;
     AlertDialog.Builder builder;
+
+    private LinearLayout layoutTotalEarning;
 
     //Interface
     public static ProfileUpdated profileUpdated;
@@ -89,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         lstNave = (ListView) findViewById(R.id.lst_nave);
         drawerLayoutNew = (DrawerLayout) findViewById(R.id.drawer_layout_new);
         relativeLayoutMenu = (RelativeLayout) findViewById(R.id.relativemenu);
+
 
         profileUpdated=this;
         profileUpdated.onProfileUpdated();
@@ -117,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
-                        beginTransction(new DashboardFragment());
+                        beginTransction(new DashboardFragment(true));
                         txtTitle.setText("Dashboard");
                         break;
 
@@ -248,7 +255,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-dialog.cancel();
+                    dialog.cancel();
                                 Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -380,6 +387,9 @@ dialog.cancel();
                 catch (Exception e){
                     Log.e(TAG, "Text View onPostExecute: ", e);
                 }
+
+                beginTransction(new DashboardFragment(true));
+
 
             } catch (JSONException e) {
                 Log.e(TAG, "onPostExecute: ",e );

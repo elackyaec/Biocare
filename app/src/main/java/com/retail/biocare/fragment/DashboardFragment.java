@@ -1,25 +1,29 @@
 package com.retail.biocare.fragment;
 
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.text.Html;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.signature.ObjectKey;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -32,16 +36,25 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
+import com.retail.biocare.MainActivity;
 import com.retail.biocare.R;
+import com.retail.biocare.StaticData.StaticDatas;
 import com.retail.biocare.adapter.DashboardAdapter;
-import com.retail.biocare.adapter.NewlyOpenedAdapter;
-import com.retail.biocare.adapter.PopularBrandsRecyclerAdapter;
-import com.retail.biocare.adapter.TopPicksRecyclerAdapter;
 import com.retail.biocare.model.DashboardModel;
 import com.retail.biocare.utils.ColorArray;
+import com.retail.biocare.utils.ExtractfromReply;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.retail.biocare.StaticData.StaticDatas.dashboadrdLoaded;
+import static com.retail.biocare.StaticData.StaticDatas.dashboardMap;
+import static com.retail.biocare.StaticData.StaticDatas.hostURL;
+import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
+import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,32 +67,49 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
         OnChartValueSelectedListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+    private static final String TAG = "DashboardFragment";
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private PieChart chart;
-    protected final String[] parties = new String[] {
+    protected final String[] parties = new String[]{
             "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
             "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
             "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
             "Party Y", "Party Z"
     };
-RecyclerView recyclerView;
-List<DashboardModel> dashboardModels=new ArrayList<>();
-DashboardAdapter dashboardAdapter;
+    RecyclerView recyclerView;
+    List<DashboardModel> dashboardModels = new ArrayList<>();
+    DashboardAdapter dashboardAdapter;
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+    private PieChart chart;
+
+    private TextView txtName, txtuserCode, txtBalance, txtTotalEarning, txtDirectIncome, txtBinaryIncome, txtLevelIncome, txttotalWithdrawls;
+    private TextView txtFundTrasnfered, txtFundReceived, txtTotalOrders, txtNewOrders, txtCompletedOrders, txtNotification;
+    private TextView txtUsedEpins, txtUnusedEpins, txtKyc, txtMessageSent, txtInbox;
+
+    private ImageView imgProfile, imgKyc;
+
+    private boolean shouldAsync = false;
+
     public DashboardFragment() {
         // Required empty public constructor
     }
+
+
+    public DashboardFragment(boolean state) {
+
+        shouldAsync = state;
+
+    }
+
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-
      * @return A new instance of fragment DashboardFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -104,15 +134,62 @@ DashboardAdapter dashboardAdapter;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        chart =view. findViewById(R.id.chart1);
-        recyclerView=view.findViewById(R.id.recyclerview);
+        chart = view.findViewById(R.id.chart1);
+        recyclerView = view.findViewById(R.id.recyclerview);
 
-        initChart();
+        txtName = view.findViewById(R.id.txtName);
+        txtuserCode = view.findViewById(R.id.txtuserCode);
+        imgProfile = view.findViewById(R.id.imgProfile);
+        txtBalance = view.findViewById(R.id.txtBalance);
+        txtTotalEarning = view.findViewById(R.id.txtTotalEarning);
+        txtDirectIncome = view.findViewById(R.id.txtDirectIncome);
+        txtBinaryIncome = view.findViewById(R.id.txtBinaryIncome);
+        txtLevelIncome = view.findViewById(R.id.txtLevelIncome);
+        txttotalWithdrawls = view.findViewById(R.id.txttotalWithdrawls);
+        txtFundTrasnfered = view.findViewById(R.id.txtFundTrasnfered);
+        txtFundReceived = view.findViewById(R.id.txtFundReceived);
+        txtTotalOrders = view.findViewById(R.id.txtTotalOrders);
+        txtNewOrders = view.findViewById(R.id.txtNewOrders);
+        txtCompletedOrders = view.findViewById(R.id.txtCompletedOrders);
+        txtNotification = view.findViewById(R.id.txtNotification);
+        txtUsedEpins = view.findViewById(R.id.txtUsedEpins);
+        txtUnusedEpins = view.findViewById(R.id.txtUnusedEpins);
+        txtKyc = view.findViewById(R.id.txtKyc);
+        txtMessageSent = view.findViewById(R.id.txtMessageSent);
+        txtInbox = view.findViewById(R.id.txtInbox);
+        imgKyc = view.findViewById(R.id.imgKyc);
 
-        RecyclerView recycler_TopPicks = view.findViewById(R.id.recycler_TopPicks);
+       // txtNotification.setSelected(true);
+
+        if (dashboadrdLoaded) {
+            txtNotification.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+            txtNotification.setText(dashboardMap.get("Notification"));
+            txtNotification.setSelected(true);
+            txtNotification.setSingleLine(true);
+            txtNotification.setSelected(true);
+        }
+
+        //txtTotBalance = view.findViewById(R.id.txtTotBalance);
+
+
+        txtName.setText(userProfileData.get("Firstname"));
+        txtuserCode.setText(StaticDatas.userBasicData.get("Username"));
+
+        try {
+            Glide.with(getContext()).load(hostURL + userBasicData.get("Photo").substring(3)).signature(new ObjectKey(userProfileData.get("DateModified"))).placeholder(R.drawable.blankprofile).into(imgProfile);
+        } catch (Exception e) {
+            Log.e(TAG, "onCreateView: ", e);
+        }
+
+        //initChart();
+
+        if (!dashboadrdLoaded && shouldAsync)
+            new GetDashBoard().execute();
+
+       /* RecyclerView recycler_TopPicks = view.findViewById(R.id.recycler_TopPicks);
         TopPicksRecyclerAdapter topPicksRecyclerAdapter = new TopPicksRecyclerAdapter(getContext());
         recycler_TopPicks.setAdapter(topPicksRecyclerAdapter);
-        recycler_TopPicks.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL, false));
+        recycler_TopPicks.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
 
         RecyclerView recycler_popularBrands = view.findViewById(R.id.recycler_popularBrands);
         PopularBrandsRecyclerAdapter popularBrandsRecyclerAdapter = new PopularBrandsRecyclerAdapter(getContext());
@@ -122,15 +199,14 @@ DashboardAdapter dashboardAdapter;
         RecyclerView recyclerNewlyOpened = view.findViewById(R.id.recyclerNewlyOpened);
         NewlyOpenedAdapter newlyOpenedAdapter = new NewlyOpenedAdapter(getContext());
         recyclerNewlyOpened.setAdapter(newlyOpenedAdapter);
-        recyclerNewlyOpened.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        recyclerNewlyOpened.setLayoutManager(new LinearLayoutManager(getContext()));*/
 
 
         return view;
     }
 
 
-    void initChart(){
+    void initChart() {
         chart.setUsePercentValues(false);
         chart.getDescription().setEnabled(false);
         chart.setExtraOffsets(5, 10, 5, 5);
@@ -183,20 +259,20 @@ DashboardAdapter dashboardAdapter;
         // entry label styling
         //    chart.setEntryLabelColor(Color.WHITE);
         //  chart.setEntryLabelTextSize(12f);
-        setData(3,10);
+        setData(3, 10);
 
-        dashboardModels.add(new DashboardModel(R.drawable.totadmin,"1","Total\n Admin"));
-        dashboardModels.add(new DashboardModel(R.drawable.todaymembers,"1000","Today Members"));
-        dashboardModels.add(new DashboardModel(R.drawable.totmembers,"1001","Total Members"));
-        dashboardModels.add(new DashboardModel(R.drawable.withdraw,"5000","Total Withdraw"));
-        dashboardModels.add(new DashboardModel(R.drawable.released,"100","Fund Released"));
-        dashboardModels.add(new DashboardModel(R.drawable.requested,"1000","Fund Requested"));
-        dashboardModels.add(new DashboardModel(R.drawable.sent,"150","Total Sent Mail"));
-        dashboardModels.add(new DashboardModel(R.drawable.readmail,"1500","Total Read Mail"));
-        dashboardModels.add(new DashboardModel(R.drawable.totalmail,"5600","Total\n Mail"));
-        dashboardModels.add(new DashboardModel(R.drawable.usedepin,"13","Total Used Epin"));
-        dashboardModels.add(new DashboardModel(R.drawable.unusedepin,"10","Total Unused Epin"));
-        dashboardModels.add(new DashboardModel(R.drawable.totadmin,"100","Total\nEpins"));
+        dashboardModels.add(new DashboardModel(R.drawable.totadmin, "1", "Total\n Admin"));
+        dashboardModels.add(new DashboardModel(R.drawable.todaymembers, "1000", "Today Members"));
+        dashboardModels.add(new DashboardModel(R.drawable.totmembers, "1001", "Total Members"));
+        dashboardModels.add(new DashboardModel(R.drawable.withdraw, "5000", "Total Withdraw"));
+        dashboardModels.add(new DashboardModel(R.drawable.released, "100", "Fund Released"));
+        dashboardModels.add(new DashboardModel(R.drawable.requested, "1000", "Fund Requested"));
+        dashboardModels.add(new DashboardModel(R.drawable.sent, "150", "Total Sent Mail"));
+        dashboardModels.add(new DashboardModel(R.drawable.readmail, "1500", "Total Read Mail"));
+        dashboardModels.add(new DashboardModel(R.drawable.totalmail, "5600", "Total\n Mail"));
+        dashboardModels.add(new DashboardModel(R.drawable.usedepin, "13", "Total Used Epin"));
+        dashboardModels.add(new DashboardModel(R.drawable.unusedepin, "10", "Total Unused Epin"));
+        dashboardModels.add(new DashboardModel(R.drawable.totadmin, "100", "Total\nEpins"));
     }
 
     private void setData(int count, float range) {
@@ -204,10 +280,27 @@ DashboardAdapter dashboardAdapter;
 
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
-        for (int i = 0; i < count ; i++) {
+        /*for (int i = 0; i < count; i++) {
             entries.add(new PieEntry((float) ((Math.random() * range) + range / 5),
                     parties[i % parties.length],
                     getResources().getDrawable(R.drawable.home_menu)));
+        }*/
+
+       /* entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("TotalOrders"))));
+        entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("NewOrders"))));
+        entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("CompletedOrders"))));*/
+
+
+        if (dashboardMap.get("TotalOrders").equalsIgnoreCase("0") && dashboardMap.get("NewOrders").equalsIgnoreCase("0") && dashboardMap.get("CompletedOrders").equalsIgnoreCase("0")) {
+            entries.add(new PieEntry(Float.parseFloat("0")));
+            entries.add(new PieEntry(Float.parseFloat("2")));
+            entries.add(new PieEntry(Float.parseFloat("0")));
+        }
+
+        else {
+            entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("TotalOrders"))));
+            entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("NewOrders"))));
+            entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("CompletedOrders"))));
         }
 
         PieDataSet dataSet = new PieDataSet(entries, "");
@@ -224,8 +317,8 @@ DashboardAdapter dashboardAdapter;
         ArrayList<Integer> colors = new ArrayList<>();
 
 
-       for(int c: ColorArray.LIBERTY_COLORS)
-           colors.add(c);
+        for (int c : ColorArray.LIBERTY_COLORS)
+            colors.add(c);
 
         colors.add(ColorTemplate.getHoloBlue());
 
@@ -252,7 +345,6 @@ DashboardAdapter dashboardAdapter;
      *
      * @param seekBar  The SeekBar whose progress has changed
      * @param progress The current progress level. This will be in the range min..max where min
-     *
      * @param fromUser True if the progress change was initiated by the user.
      */
     @Override
@@ -315,11 +407,116 @@ DashboardAdapter dashboardAdapter;
 
     private SpannableString generateCenterSpannableText() {
 
-        SpannableString s = new SpannableString("All Members\n456");
-        s.setSpan(new RelativeSizeSpan(.99f), 0, 11, 0);
-        s.setSpan(new StyleSpan(Typeface.BOLD), 11, s.length(), 0);
-        s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), 11 , s.length(), 0);
+        SpannableString s = new SpannableString("Total Orders\n" + dashboardMap.get("TotalOrders"));
+        s.setSpan(new RelativeSizeSpan(.99f), 0, 12, 0);
+        s.setSpan(new StyleSpan(Typeface.BOLD), 12, s.length(), 0);
+        s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), 12, s.length(), 0);
         return s;
     }
 
+
+    private class GetDashBoard extends AsyncTask<String, String, String> {
+
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setMessage("Please wait");
+            progressDialog.show();
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            progressDialog.dismiss();
+
+            if (!s.equalsIgnoreCase("NODATA")) {
+                dashboadrdLoaded = true;
+
+                try {
+                    JSONArray jsonArray = new JSONArray(s);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                    dashboardMap.put("TotalEarnings", jsonObject.getString("TotalEarnings"));
+                    dashboardMap.put("AvailableBalance", jsonObject.getString("AvailableBalance"));
+                    dashboardMap.put("DirectIncome", jsonObject.getString("DirectIncome"));
+                    dashboardMap.put("LevelIncome", jsonObject.getString("LevelIncome"));
+                    dashboardMap.put("BinaryIncome", jsonObject.getString("BinaryIncome"));
+                    dashboardMap.put("Notification", jsonObject.getString("Notification"));
+                    dashboardMap.put("Kyc", jsonObject.getString("Kyc"));
+                    dashboardMap.put("UnusedEpins", jsonObject.getString("UnusedEpins"));
+                    dashboardMap.put("UsedEpins", jsonObject.getString("UsedEpins"));
+                    dashboardMap.put("TransferedEpins", jsonObject.getString("TransferedEpins"));
+                    dashboardMap.put("ReceivedEpins", jsonObject.getString("ReceivedEpins"));
+                    dashboardMap.put("TotalWithdrawals", jsonObject.getString("TotalWithdrawals"));
+                    dashboardMap.put("FundTrasnfered", jsonObject.getString("FundTrasnfered"));
+                    dashboardMap.put("FundReceived", jsonObject.getString("FundReceived"));
+                    dashboardMap.put("MessageSent", jsonObject.getString("MessageSent"));
+                    dashboardMap.put("Inbox", jsonObject.getString("Inbox"));
+                    dashboardMap.put("TotalOrders", jsonObject.getString("TotalOrders"));
+                    dashboardMap.put("NewOrders", jsonObject.getString("NewOrders"));
+                    dashboardMap.put("CompletedOrders", jsonObject.getString("CompletedOrders"));
+
+
+                    txtBalance.setText(userBasicData.get("Currency") + jsonObject.getString("AvailableBalance"));
+                    txtTotalEarning.setText(userBasicData.get("Currency") + jsonObject.getString("TotalEarnings"));
+                    txtDirectIncome.setText(userBasicData.get("Currency") + jsonObject.getString("DirectIncome"));
+                    txtBinaryIncome.setText(userBasicData.get("Currency") + jsonObject.getString("BinaryIncome"));
+                    txtLevelIncome.setText(userBasicData.get("Currency") + jsonObject.getString("LevelIncome"));
+                    txttotalWithdrawls.setText(userBasicData.get("Currency") + jsonObject.getString("TotalWithdrawals"));
+                    txtFundTrasnfered.setText(userBasicData.get("Currency") + jsonObject.getString("FundTrasnfered"));
+                    txtFundReceived.setText(userBasicData.get("Currency") + jsonObject.getString("FundReceived"));
+                    txtTotalOrders.setText(jsonObject.getString("TotalOrders"));
+                    txtNewOrders.setText(jsonObject.getString("NewOrders"));
+                    txtUsedEpins.setText("Used Epins="+jsonObject.getString("UsedEpins"));
+                    txtCompletedOrders.setText(jsonObject.getString("CompletedOrders"));
+                    txtUnusedEpins.setText("Unused Epins="+jsonObject.getString("UnusedEpins"));
+                    txtKyc.setText(jsonObject.getString("Kyc").toUpperCase());
+
+                    if (jsonObject.getString("Kyc").equalsIgnoreCase("nill")){
+
+                        imgKyc.setImageResource(R.drawable.cautionpng);
+                    }
+                    else if (jsonObject.getString("Kyc").equalsIgnoreCase("pending")){
+                        imgKyc.setImageResource(R.drawable.pending);
+
+                    }
+                    else if (jsonObject.getString("Kyc").equalsIgnoreCase("Approved")){
+
+                        imgKyc.setImageResource(R.drawable.greentick);
+
+                    }
+
+                    txtMessageSent.setText(jsonObject.getString("MessageSent"));
+                    txtInbox.setText(jsonObject.getString("Inbox"));
+
+                   // txtNotification.setSele
+                    txtNotification.setText(Html.fromHtml(jsonObject.getString("Notification"))+"                                         ");
+                    txtNotification.setSelected(true);
+
+
+                    initChart();
+
+                } catch (Exception e) {
+                    Log.e(TAG, "onPostExecute: ", e);
+                }
+
+
+            }
+
+            Log.d(TAG, "onPostExecute: Response: " + s);
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return new ExtractfromReply().performPost("WSMember", "GetMemberdashboardApp", "MemberId=" + userBasicData.get("UserID") + "&PageIndex=1");
+        }
+    }
 }
