@@ -304,7 +304,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
-            android:text="New to Globaldailypro?"
+            android:text="New to Biocare?"
             android:textSize="14sp"
 
 

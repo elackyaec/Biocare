@@ -34,7 +34,7 @@ public class LoginTimingsAdapter extends RecyclerView.Adapter<LoginTimingsAdapte
     public void onBindViewHolder(@NonNull LoginTimingViewHolder holder, int position) {
 
         holder.txtIP.setText(loginTimingData.get(position).getIpAddress());
-        holder.txtUserCode.setText(loginTimingData.get(position).getUserCode());
+        //holder.txtUserCode.setText(loginTimingData.get(position).getUserCode());
         holder.txtDate.setText(loginTimingData.get(position).getDate());
 
     }
@@ -54,7 +54,7 @@ public class LoginTimingsAdapter extends RecyclerView.Adapter<LoginTimingsAdapte
 
             txtIP = itemView.findViewById(R.id.txtIP);
             txtDate = itemView.findViewById(R.id.txtDate);
-            txtUserCode = itemView.findViewById(R.id.txtUserCode);
+            //txtUserCode = itemView.findViewById(R.id.txtUserCode);
 
 
         }

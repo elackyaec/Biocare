@@ -319,6 +319,7 @@
                     android:orientation="horizontal"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:id="@+id/layoutTestinomial"
                     android:background="@color/white">
 
 

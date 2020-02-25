@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestinomialSaveActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/layout_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_icon"
+                android:tint="@color/white" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Send Testinomial"
+            android:textColor="@color/white"
+
+            android:textSize="17sp"
+
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Send Testimonial"/>
+
+        <RelativeLayout
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgImage"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/noimage"
+                />
+
+
+            <ImageView
+                android:id="@+id/img_camera"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/camera"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testimonial Title"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:hint="Testimonial Title"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txtTitle"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:background="@drawable/edittext_bg_curve_new"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testimonial Description"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:hint="Testimonial Description"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txtTestinomialDescription"
+            android:textSize="15sp"
+            android:gravity="top"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:background="@drawable/edittext_bg_curve_new"/>
+
+
+
+        <Button
+            android:id="@+id/btnSendTestinomial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="Update Profile"
+            android:textSize="15sp"
+            android:layout_alignParentBottom="true"
+            android:visibility="visible"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

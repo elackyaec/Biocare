@@ -21,6 +21,7 @@ import com.retail.biocare.Interfaces.ProfileUpdated;
 import com.retail.biocare.LoginTimingActivity;
 import com.retail.biocare.R;
 import com.retail.biocare.StaticData.StaticDatas;
+import com.retail.biocare.TestinomialSaveActivity;
 import com.retail.biocare.activity.AddReviewActivity;
 import com.retail.biocare.activity.AddressListActivity;
 import com.retail.biocare.activity.ChangeTransactionPasswordActivity;
@@ -70,6 +71,14 @@ public class FragmentProfile extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getContext(), ProfileDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        rootView.findViewById(R.id.layoutTestinomial).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getContext(), TestinomialSaveActivity.class);
                 startActivity(intent);
             }
         });
