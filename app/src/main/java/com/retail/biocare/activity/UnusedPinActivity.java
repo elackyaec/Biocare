@@ -99,7 +99,6 @@ public class UnusedPinActivity extends AppCompatActivity {
                         JSONObject c=jsonArray.getJSONObject(i);
 
                         usedEpinModels.add(new UnusedEpinModel(c.getString("PinID"),c.getString("PinNumber"),c.getString("Amount"),c.getString("PackageName"),c.getString("CreatedDate"),c.getString("PaidStatus")));
-
                         if(usedEpinModels.size()>0)
                         {
                             txtNotFound.setVisibility(View.GONE);

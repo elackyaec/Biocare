@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
+import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
 
 public class BuyEpinActivity extends AppCompatActivity implements QtyChange {
     RelativeLayout layoutBack;
@@ -71,7 +72,7 @@ public class BuyEpinActivity extends AppCompatActivity implements QtyChange {
 
 
         otyChanged = this;
-        edtUsername.setText(userBasicData.get("Name"));
+        edtUsername.setText(userProfileData.get("Customername"));
 
 
         btnBuy.setOnClickListener(new View.OnClickListener() {

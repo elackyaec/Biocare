@@ -145,7 +145,7 @@
                 android:background="@android:color/transparent"
                 android:inputType="text"
                 android:hint="Enter Username"
-                android:text="bc1001"
+                android:text="bc1000"
                 android:layout_gravity="center"
                 android:textColorHint="@color/gray"
                 android:textSize="16sp"
