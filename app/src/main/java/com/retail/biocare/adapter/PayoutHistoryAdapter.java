@@ -85,7 +85,7 @@ opendetailsdialog(mData.get(position).getUsername(),mData.get(position).getFulln
 
         detailsdialog = new Dialog(context);
         detailsdialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        detailsdialog.setContentView(R.layout.dialog_pendingwithdraw_details);
+        detailsdialog.setContentView(R.layout.dialog_payoutreport_details);
         detailsdialog.setCancelable(true);
         detailsdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         detailsdialog.show();

@@ -40,7 +40,7 @@ public class PaymentHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pendingwithdraw);
+        setContentView(R.layout.activity_paymenthistory);
         layoutBack=(RelativeLayout)findViewById(R.id.layout_back);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
 txtNotFound=(TextView)findViewById(R.id.txt_notfound);

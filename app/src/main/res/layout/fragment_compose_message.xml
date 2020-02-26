@@ -1,6 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_bg_white3_curve"
+
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/profile_icon"/>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:layout_marginLeft="10dp"
+
+                    android:dropDownVerticalOffset="30dp"
+                    android:textSize="15sp"
+                    android:theme="@style/AppTheme.Spinner" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/notification_icon"/>
+
+                <EditText
+                    android:id="@+id/txt_subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="17sp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+
+                    android:background="@android:color/transparent"
+                    android:hint="Subject"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/craeteads"/>
+
+                <EditText
+                    android:id="@+id/edt_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="17sp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+
+                    android:background="@android:color/transparent"
+                    android:hint="Message"/>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_sendmsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Send Message"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="8dp"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textSize="17sp"
+
+                    android:background="@drawable/btn_bg_cp_curve"
+                    android:textColor="@color/white"
+                    />
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:layout_marginBottom="20dp"
+                    android:elevation="8dp"
+                    android:textAllCaps="false"
+                    android:textSize="17sp"
+
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_bg_gray_curve"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

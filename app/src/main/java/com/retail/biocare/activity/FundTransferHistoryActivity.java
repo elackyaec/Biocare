@@ -19,6 +19,7 @@ import com.retail.biocare.model.FundTransferHistoryModel;
 import com.retail.biocare.model.PaymentHistoryModel;
 import com.retail.biocare.utils.ExtractfromReply;
 import com.retail.biocare.utils.GlobalMethods;
+import com.testfairy.h.b.G;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -90,11 +91,15 @@ txtNotFound=(TextView)findViewById(R.id.txt_notfound);
 
 
             }
+            else if(s.equals("[]"))
+            {
+                txtNotFound.setVisibility(View.VISIBLE);
+            }
 
             else{
 
                 try {
-
+txtNotFound.setVisibility(View.GONE);
                     JSONArray jsonArray = new JSONArray(s);
                     for(int i=0;i<jsonArray.length();i++)
                     {

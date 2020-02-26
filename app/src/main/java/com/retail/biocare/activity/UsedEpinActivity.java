@@ -85,10 +85,16 @@ public class UsedEpinActivity extends AppCompatActivity {
             if (s.equals("NODATA")) {
 
 
-            } else {
+            }
+            else if(s.equals("[]"))
+            {
+                txtNotFound.setVisibility(View.VISIBLE);
+            }
+
+            else {
 
                 try {
-
+txtNotFound.setVisibility(View.GONE);
                     JSONArray jsonArray = new JSONArray(s);
                     for (int i = 0; i < jsonArray.length(); i++) {
 

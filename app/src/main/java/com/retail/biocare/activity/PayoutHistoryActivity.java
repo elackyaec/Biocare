@@ -37,7 +37,7 @@ import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
 public class PayoutHistoryActivity extends AppCompatActivity {
     RelativeLayout layoutBack;
     RecyclerView recyclerView;
-    List<PayoutHistoryModel> payoutHistoryModels;
+    List<PayoutHistoryModel> payoutHistoryModels=new ArrayList<>();
     PayoutHistoryAdapter payoutHistoryAdapter;
     TextView txtNotFound;
     Spinner spinner;
@@ -48,9 +48,9 @@ public class PayoutHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payouthistory);
-        layoutBack=(RelativeLayout)findViewById(R.id.layout_back);
-        recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
-txtNotFound=(TextView)findViewById(R.id.txt_notfound);
+        layoutBack = (RelativeLayout) findViewById(R.id.layout_back);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        txtNotFound = (TextView) findViewById(R.id.txt_notfound);
         spinner = (Spinner) findViewById(R.id.spinner);
 
         layoutBack.setOnClickListener(new View.OnClickListener() {
@@ -60,16 +60,12 @@ txtNotFound=(TextView)findViewById(R.id.txt_notfound);
             }
         });
 
-        if(GlobalMethods.isNetworkAvailable(getApplicationContext()))
-        {
+        if (GlobalMethods.isNetworkAvailable(getApplicationContext())) {
             new GetDates().execute();
 
 
-
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),getString(R.string.no_internet),Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -89,7 +85,7 @@ txtNotFound=(TextView)findViewById(R.id.txt_notfound);
 
             progressDialog.setMessage("Please wait");
             progressDialog.show();
-            payoutHistoryModels=new ArrayList<>();
+            payoutHistoryModels = new ArrayList<>();
         }
 
         @Override
@@ -98,61 +94,45 @@ txtNotFound=(TextView)findViewById(R.id.txt_notfound);
 
             progressDialog.dismiss();
 
-            if (s.equals("NODATA")){
+            if (s.equals("NODATA")) {
 
 
             }
+            else if(s.equals("[]"))
+            {
+                txtNotFound.setVisibility(View.VISIBLE);
+            }
 
-            else{
+            else {
 
                 try {
-
+txtNotFound.setVisibility(View.GONE);
                     JSONArray jsonArray = new JSONArray(s);
-                    for(int i=0;i<jsonArray.length();i++)
-                    {
+                    for (int i = 0; i < jsonArray.length(); i++) {
 
-                        JSONObject c=jsonArray.getJSONObject(i);
+                        JSONObject c = jsonArray.getJSONObject(i);
 
-String username=c.getString("username");
-                        String fullnmae=c.getString("CustomerName");
-                        String date=c.getString("PayoutDate");
-                        String debit=c.getString("Amount");
-                       // String message=c.getString("Message");
+                        String username = c.getString("username");
+                        String fullnmae = c.getString("CustomerName");
+                        String date = c.getString("PayoutDate");
+                        String debit = c.getString("Amount");
+                        // String message=c.getString("Message");
                         //String credit=c.getString("Credit");
-                        String fin1 = c.getString("Bank").replace("&lt;","");
-                        String fin2 = fin1.replace("&gt;","");
-                        String fin3=fin2.replace("&amp;","");
-                        String fin4=fin3.replace("nbsp;","");
-                        String fin5=fin4.replace("br"," ");
-                        Log.e("FI",fin5);
-                        String token[]=fin5.split(" ");
-                        String one=token[0];
-                        String two=token[1];
-                        String three=token[2];
-                        String four=token[3];
-                        String five=token[4];
+                        String accname = c.getString("AccountName");
+                        String accn0 = c.getString("AccountNumber");
+                        String bankname = c.getString("BankName");
+                        String branch = c.getString("Branch");
+                        String bankcode = c.getString("Bankcode");
 
-                        String six[]=one.split(":");
-                        String accname=six[1];
-                        String seven[]=two.split(":");
-                        String accn0=seven[1];
-                        String eight[]=three.split(":");
-                        String bankname=eight[1];
-                        String nine[]=four.split(":");
-                        String branch=nine[1];
-                        String ten[]=five.split(":");
-                        String bankcode=ten[1];
-                        payoutHistoryModels.add(new PayoutHistoryModel(username,fullnmae,"",date,debit,accname,accn0,bankname,branch,bankcode));
 
-                        if(payoutHistoryModels.size()>0)
-                        {
-                            payoutHistoryAdapter=new PayoutHistoryAdapter(PayoutHistoryActivity.this,payoutHistoryModels);
+                        payoutHistoryModels.add(new PayoutHistoryModel(username, fullnmae, "", date, debit, accname, accn0, bankname, branch, bankcode));
+
+                        if (payoutHistoryModels.size() > 0) {
+                            payoutHistoryAdapter = new PayoutHistoryAdapter(PayoutHistoryActivity.this, payoutHistoryModels);
                             recyclerView.setAdapter(payoutHistoryAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(PayoutHistoryActivity.this));
                             txtNotFound.setVisibility(View.GONE);
-                        }
-                        else
-                        {
+                        } else {
                             txtNotFound.setVisibility(View.VISIBLE);
 
 
@@ -162,6 +142,7 @@ String username=c.getString("username");
 
 
                 } catch (Exception e) {
+                    Log.e("ES", e.getMessage());
                 }
 
             }
@@ -170,11 +151,12 @@ String username=c.getString("username");
 
         @Override
         protected String doInBackground(String... strings) {
-            return new ExtractfromReply().performPost("WSMember","GetPayoutreport","MemberId="+userBasicData.get("UserID")+"&PayoutDate="+strings[0]+"&PageIndex="+"1");
+            return new ExtractfromReply().performPost("WSMember", "GetPayoutreport", "MemberId=" + userBasicData.get("UserID") + "&PayoutDate=" + strings[0] + "&PageIndex=" + "1");
 
 
         }
     }
+
     private class GetDates extends AsyncTask<String, String, String> {
 
 
@@ -194,7 +176,9 @@ String username=c.getString("username");
             if (s.equals("NODATA")) {
 
 
-            } else {
+            }
+
+            else {
 
                 try {
 
@@ -213,9 +197,11 @@ String username=c.getString("username");
                         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-dateselect=options.get(position);
-Log.e("date",dateselect);
-                              new GetPayout().execute(dateselect);
+                                dateselect = options.get(position);
+                                String dattte = GlobalMethods.DateConverdion1(dateselect);
+                                Log.e("date", dattte);
+                                payoutHistoryModels.clear();
+                                new GetPayout().execute(dattte);
                             }
 
                             @Override

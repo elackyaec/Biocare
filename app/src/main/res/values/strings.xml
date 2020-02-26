@@ -20,17 +20,21 @@
     <string name="drawer_close">Close</string>
 
     <string name="no_internet">Please check your internet connection!</string>
-    <string-array name="pkgnanme">
-        <item>PKG_001</item>
-        <item>PKG_002</item>
-        <item>PKG_003</item>
-        <item>PKG_004</item>
-        <item>PKG_005</item>
-        <item>PKG_006</item>
-        <item>PKG_007</item>
-        <item>PKG_008</item>
-        <item>PKG_009</item>
-        <item>PKG_010</item>
+    <string-array name="month">
+
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+
 
     </string-array>
 </resources>

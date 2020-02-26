@@ -23,6 +23,7 @@ import com.retail.biocare.activity.PaymentHistoryActivity;
 import com.retail.biocare.activity.PayoutHistoryActivity;
 import com.retail.biocare.activity.PendingWithdrawFundActivity;
 import com.retail.biocare.activity.WithdrawFundActivity;
+import com.retail.biocare.activity.WithdrawListActivity;
 import com.retail.biocare.adapter.WalletAdapter;
 import com.retail.biocare.model.DashboardModel;
 import com.retail.biocare.utils.ExtractfromReply;
@@ -77,17 +78,11 @@ txtTotal=(TextView)rootView.findViewById(R.id.txt_total);
         pendingwithdrawlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(), PendingWithdrawFundActivity.class);
+                Intent intent=new Intent(getContext(), WithdrawListActivity.class);
                 startActivity(intent);
             }
         });
-        paymenthistorylayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), PaymentHistoryActivity.class);
-                startActivity(intent);
-            }
-        });
+
         transferhistorylayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

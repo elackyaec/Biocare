@@ -163,7 +163,46 @@ public class GlobalMethods {
 
         return output;
     }
+    public static String DateConverdionDate3(String date){
 
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        //Desired format: 24 hour format: Change the pattern as per the need
+        DateFormat outputformat = new SimpleDateFormat("MM/dd/yyyy");
+        Date dates = null;
+        String output = null;
+        try{
+            //Converting the input String to Date
+            dates= df.parse(date);
+            //Changing the format of date and storing it in String
+            output = outputformat.format(dates);
+            //Displaying the date
+
+        }catch(ParseException pe){
+            pe.printStackTrace();
+        }
+
+        return output;
+    }
+    public static String DateConverdion1(String date){
+
+        DateFormat df = new SimpleDateFormat("dd MMM yyyy");
+        //Desired format: 24 hour format: Change the pattern as per the need
+        DateFormat outputformat = new SimpleDateFormat("MM/dd/yyyy");
+        Date dates = null;
+        String output = null;
+        try{
+            //Converting the input String to Date
+            dates= df.parse(date);
+            //Changing the format of date and storing it in String
+            output = outputformat.format(dates);
+            //Displaying the date
+
+        }catch(ParseException pe){
+            pe.printStackTrace();
+        }
+
+        return output;
+    }
     public static String DateTime24(String date){
 
         DateFormat df = new SimpleDateFormat("dd MMM yyyy hh:mm a");

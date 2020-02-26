@@ -87,11 +87,15 @@ public class UnusedPinActivity extends AppCompatActivity {
 
 
             }
+            else if(s.equals("[]"))
+            {
+                txtNotFound.setVisibility(View.VISIBLE);
+            }
 
             else{
 
                 try {
-
+txtNotFound.setVisibility(View.GONE);
                     JSONArray jsonArray = new JSONArray(s);
                     for(int i=0;i<jsonArray.length();i++)
                     {
