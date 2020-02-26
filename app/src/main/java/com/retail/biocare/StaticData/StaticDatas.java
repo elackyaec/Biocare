@@ -15,5 +15,8 @@ public class StaticDatas {
     public static Map<String, String> userProfileData = new HashMap<>();
     public static Map<String, String> bankDetailsMap = new HashMap<>();
 
+    public static Map<String, String> dashboardMap = new HashMap<>();
 
+
+    public static boolean dashboadrdLoaded = false;
 }
