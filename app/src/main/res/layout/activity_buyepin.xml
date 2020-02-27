@@ -55,13 +55,13 @@
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="120dp"
         android:background="@drawable/btn_bg_white2_curve"
         android:orientation="vertical"
         android:elevation="3sp"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="10dp">
 
         <LinearLayout
@@ -73,9 +73,10 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp">
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/money"
+                android:layout_marginTop="5dp"
                 android:tint="@color/colorPrimary"
                 android:layout_gravity="center"/>
 
@@ -86,7 +87,7 @@
                 android:text="$3000"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -109,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout1"
         >
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -343,7 +344,257 @@ android:layout_marginTop="10dp"
                    />
             </LinearLayout>
 
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/btn_bg_white3_curve"
+
+            android:gravity="center_horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/profile_icon"/>
+
+                <TextView
+                    android:id="@+id/edt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Username"
+                    android:textSize="15sp"
+                    android:inputType="text"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/craeteads"/>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40sp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:dropDownVerticalOffset="30dp"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:theme="@style/AppTheme.Spinner" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/money"/>
+
+                <TextView
+                    android:id="@+id/txt_pkgamt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Package Amount"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity:"
+
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgminus"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/minus"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+
+
+                        android:tint="@color/red"/>
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edittext_bg_curve_new"
+                        android:focusable="true"
+                        android:layout_marginTop="10dp"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+
+
+
+                        <TextView
+                            android:id="@+id/txtvalue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:text="1"
+
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="15sp" />
+
+
+
+
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imgplus"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/plus"
+                        android:layout_gravity="center"
+                        android:tint="@color/green"
+                        android:layout_marginTop="4dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/layout_curve_bg_stroke"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="10dp"
+                        android:tint="@color/colorPrimary"
+                        android:src="@drawable/moneytransfer"/>
+
+                    <TextView
+                        android:id="@+id/txt_amtpayable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount Payable"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="10dp"
+                        android:inputType="number"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBuy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg_cp_curve"
+                    android:text="Buy Epin"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+
+                    android:layout_weight="1"
+
+                    />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg_gray_curve"
+                    android:text="Cancel"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+
+
+
+
         </LinearLayout>
+
     </ScrollView>
 
 

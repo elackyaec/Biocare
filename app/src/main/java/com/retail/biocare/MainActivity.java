@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ClassLeftDrawer item;
     RelativeLayout relativeLayoutMenu;
     AlertDialog.Builder builder;
+    String page;
 
     private LinearLayout layoutTotalEarning;
 
@@ -152,6 +153,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return true;
             }
         });
+
+        try {
+            if(getIntent()!=null)
+            {
+                page=getIntent().getStringExtra("page");
+                if(page.equals("2"))
+                {
+                    beginTransction(new FragmentWallet());
+                    txtTitle.setText("Wallet");
+                    bottomNavigationView.setSelectedItemId(R.id.nav_feeds);
+
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void beginTransction(final Fragment fragment) {

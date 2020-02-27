@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:background="@color/white">
+>
 
     <LinearLayout
         android:id="@+id/header"
@@ -121,192 +122,272 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_white3_curve"
+            android:padding="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
          >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Username:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txt_username"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Username : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_weight="2.7"
+                        android:textColor="@color/black"
+                       />
+
+                    <TextView
+                        android:id="@+id/txt_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ABD Logistics Pvt.Ltd;"
+                        android:textSize="15sp"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                      />
+                </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Fullname : "
+                       android:textStyle="bold"
+                       android:textSize="15sp"
+                       android:layout_weight="2.7"
+                       android:textColor="@color/black"
+                       />
+                   <TextView
+                       android:id="@+id/txt_fullname"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Beverly Road, Thiruvanmiyur"
+                       android:textSize="15sp"
+                       android:textColor="@color/black"
+                      android:layout_weight="1"/>
+
+               </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ABD Logistics Pvt.Ltd;"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"/>
-                <TextView
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sponsor : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_weight="2.7"
+                        android:textColor="@color/black"
+                       />
+                    <TextView
+                        android:id="@+id/txt_sponsor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fullname:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_fullname"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Level : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                       android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Beverly Road, Thiruvanmiyur"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Binary : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txtBinary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sponsor:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_sponsor"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rewards : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_rewards"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gross : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_gross"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$0"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Level:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_level"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TDS : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_tds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Service Tax : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_tax"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Binary:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txtBinary"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Deduction : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_deduction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rewards:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_rewards"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gross:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_gross"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="$0"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TDS:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_tds"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Service Tax:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_tax"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Deduction:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_deduction"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="2dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Net Amount:"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/txt_netamt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Chennai, Tamilnadu - 600 006"
-                    android:textSize="15sp"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="2dp"/>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Net Amount : "
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="2.7"/>
+                    <TextView
+                        android:id="@+id/txt_netamt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chennai, Tamilnadu - 600 006"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>

@@ -25,17 +25,18 @@ public class IncomeAdapter extends RecyclerView.Adapter<IncomeAdapter.DataObject
 
     Context context;
     List<IncomeModel> mData;
+    String status;
 
 
-    public IncomeAdapter(Context context, List<IncomeModel> mData) {
+    public IncomeAdapter(Context context, List<IncomeModel> mData, String status) {
         this.context = context;
         this.mData = mData;
+        this.status = status;
     }
-
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder{
 
-TextView txtName,txtUsername,txtAmt,txtTDS,txtTax,txtNetAmt;
+TextView txtName,txtUsername,txtAmt,txtTDS,txtTax,txtNetAmt,txtIncome;
 
         public DataObjectHolder(View itemView) {
             super(itemView);
@@ -46,6 +47,7 @@ txtName=(TextView)itemView.findViewById(R.id.txtName);
             txtTDS=(TextView)itemView.findViewById(R.id.txtTDS);
             txtTax=(TextView)itemView.findViewById(R.id.txtTax);
             txtNetAmt=(TextView)itemView.findViewById(R.id.txt_netamt);
+            txtIncome=(TextView)itemView.findViewById(R.id.txtincome);
 
 
         }
@@ -53,7 +55,7 @@ txtName=(TextView)itemView.findViewById(R.id.txtName);
 
     @Override
     public DataObjectHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_income_report, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_incomereport, parent, false);
 
         DataObjectHolder dataObjectHolder = new DataObjectHolder(view);
 
@@ -66,10 +68,23 @@ txtName=(TextView)itemView.findViewById(R.id.txtName);
 
         holder.txtName.setText(mData.get(position).getName());
         holder.txtUsername.setText(mData.get(position).getUsername());
-        holder.txtAmt.setText("Amount : $"+mData.get(position).getAmount());
-        holder.txtTDS.setText("TDS : $"+mData.get(position).getTds());
-        holder.txtTax.setText("Tax : $"+mData.get(position).getTax());
+        holder.txtAmt.setText("Amount: $"+mData.get(position).getAmount());
+        holder.txtTDS.setText("TDS: $"+mData.get(position).getTds());
+        holder.txtTax.setText("Tax: $"+mData.get(position).getTax());
         holder.txtNetAmt.setText("$"+mData.get(position).getNetamt());
+
+        if(status.equals("11"))
+        {
+            holder.txtIncome.setText("Direct Income Generated");
+        }
+        else if(status.equals("12"))
+        {
+            holder.txtIncome.setText("Level Income Generated");
+        }
+        else if(status.equals("13"))
+        {
+            holder.txtIncome.setText("Binary Income Generated");
+        }
 
     }
 

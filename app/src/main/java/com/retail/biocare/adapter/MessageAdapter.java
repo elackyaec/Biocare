@@ -83,7 +83,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.DataObje
 
         holder.txtDate.setText(messagelist.get(position).getDate());
         holder.txtmsg.setText(messagelist.get(position).getMessage());
-        holder.txt_sub.setText(messagelist.get(position).getSubject());
+        holder.txt_sub.setText("Subject: "+messagelist.get(position).getSubject());
 
         String finName = messagelist.get(position).getName().substring(0, 1).toUpperCase() + messagelist.get(position).getName().substring(1);
 
@@ -91,11 +91,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.DataObje
 
 if(status.equals("1"))
 {
-    holder.txTTitle.setText("Sender : ");
+    holder.txTTitle.setText("Sent From : ");
 }
 else
 {
-    holder.txTTitle.setText("Receiver : ");
+    holder.txTTitle.setText("Send To : ");
 
 }
         holder.btnView.setOnClickListener(new View.OnClickListener() {

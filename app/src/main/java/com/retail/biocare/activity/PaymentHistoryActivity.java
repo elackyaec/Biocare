@@ -110,7 +110,7 @@ String username=c.getString("username");
                         paymentHistoryModels.add(new PaymentHistoryModel(username,fullnmae,amount,date,message));
                         if(paymentHistoryModels.size()>0)
                         {
-                            paymentHistoryAdapter=new PaymentHistoryAdapter(PaymentHistoryActivity.this,paymentHistoryModels);
+                            paymentHistoryAdapter=new PaymentHistoryAdapter(PaymentHistoryActivity.this,paymentHistoryModels,userBasicData.get("Username"));
                             recyclerView.setAdapter(paymentHistoryAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(PaymentHistoryActivity.this));
                             txtNotFound.setVisibility(View.GONE);

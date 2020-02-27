@@ -26,17 +26,18 @@ public class PaymentHistoryAdapter extends RecyclerView.Adapter<PaymentHistoryAd
 
     Context context;
     List<PaymentHistoryModel> mData;
+    String name;
 
 
-    public PaymentHistoryAdapter(Context context, List<PaymentHistoryModel> mData) {
+    public PaymentHistoryAdapter(Context context, List<PaymentHistoryModel> mData, String name) {
         this.context = context;
         this.mData = mData;
+        this.name = name;
     }
-
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder{
 
-TextView txtUsername,txtFullname,txtDate,txtMessage,txtAmt;
+TextView txtUsername,txtFullname,txtDate,txtMessage,txtAmt,txtUserid;
 
         public DataObjectHolder(View itemView) {
             super(itemView);
@@ -45,14 +46,15 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame);
             txtFullname=(TextView)itemView.findViewById(R.id.txt_compeltename);
             txtDate=(TextView)itemView.findViewById(R.id.txt_date);
             txtMessage=(TextView)itemView.findViewById(R.id.txt_sttaus);
-            txtAmt=(TextView)itemView.findViewById(R.id.txt_amt);
+            txtAmt=(TextView)itemView.findViewById(R.id.txtprice);
+            txtUserid=(TextView)itemView.findViewById(R.id.txtFundId);
 
         }
     }
 
     @Override
     public DataObjectHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_paymenthistory, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_payment_history, parent, false);
 
         DataObjectHolder dataObjectHolder = new DataObjectHolder(view);
 
@@ -66,6 +68,8 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame);
         holder.txtAmt.setText(mData.get(position).getAmount());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtMessage.setText(mData.get(position).getMessage());
+        holder.txtUserid.setText(name);
+
 
     }
 

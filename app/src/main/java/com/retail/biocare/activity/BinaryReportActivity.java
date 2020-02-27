@@ -217,7 +217,7 @@ Log.e("RID",reportid);
                         incomeModels.add(new IncomeModel(fullnmae,username,amount,tds,tax,netamt));
                         if(incomeModels.size()>0)
                         {
-                            incomeAdapter=new IncomeAdapter(BinaryReportActivity.this,incomeModels);
+                            incomeAdapter=new IncomeAdapter(BinaryReportActivity.this,incomeModels,reportid);
                             recyclerView.setAdapter(incomeAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(BinaryReportActivity.this));
                             txtNotFound.setVisibility(View.GONE);

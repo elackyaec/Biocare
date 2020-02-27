@@ -17,10 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.R;
-import com.retail.biocare.adapter.FundTransferHistoryAdapter;
 import com.retail.biocare.adapter.PayoutHistoryAdapter;
-import com.retail.biocare.model.FundTransferHistoryModel;
-import com.retail.biocare.model.PackageModel;
 import com.retail.biocare.model.PayoutHistoryModel;
 import com.retail.biocare.utils.ExtractfromReply;
 import com.retail.biocare.utils.GlobalMethods;
@@ -128,7 +125,7 @@ txtNotFound.setVisibility(View.GONE);
                         payoutHistoryModels.add(new PayoutHistoryModel(username, fullnmae, "", date, debit, accname, accn0, bankname, branch, bankcode));
 
                         if (payoutHistoryModels.size() > 0) {
-                            payoutHistoryAdapter = new PayoutHistoryAdapter(PayoutHistoryActivity.this, payoutHistoryModels);
+                            payoutHistoryAdapter = new PayoutHistoryAdapter(PayoutHistoryActivity.this, payoutHistoryModels,userBasicData.get("UserID"));
                             recyclerView.setAdapter(payoutHistoryAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(PayoutHistoryActivity.this));
                             txtNotFound.setVisibility(View.GONE);

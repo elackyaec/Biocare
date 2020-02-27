@@ -61,7 +61,6 @@ public class PaymentHistoryFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-
      * @return A new instance of fragment PaymentHistoryFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -87,15 +86,12 @@ public class PaymentHistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_payment_history, container, false);
-        recyclerView=(RecyclerView)view.findViewById(R.id.recyclerview);
-        txtNotFound=(TextView)view.findViewById(R.id.txt_notfound);
-        if(GlobalMethods.isNetworkAvailable(getContext()))
-        {
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        txtNotFound = (TextView) view.findViewById(R.id.txt_notfound);
+        if (GlobalMethods.isNetworkAvailable(getContext())) {
             new GetPaymentHistory().execute();
-        }
-        else
-        {
-            Toast.makeText(getContext(),getString(R.string.no_internet),Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
         }
         return view;
     }
@@ -110,7 +106,7 @@ public class PaymentHistoryFragment extends Fragment {
 
             progressDialog.setMessage("Please wait");
             progressDialog.show();
-            paymentHistoryModels=new ArrayList<>();
+            paymentHistoryModels = new ArrayList<>();
         }
 
         @Override
@@ -119,40 +115,32 @@ public class PaymentHistoryFragment extends Fragment {
 
             progressDialog.dismiss();
 
-            if (s.equals("NODATA")){
+            if (s.equals("NODATA")) {
 
 
-            }
-            else if(s.equals("[]"))
-            {
+            } else if (s.equals("[]")) {
                 txtNotFound.setVisibility(View.VISIBLE);
-            }
-
-            else{
+            } else {
 
                 try {
-txtNotFound.setVisibility(View.GONE);
+                    txtNotFound.setVisibility(View.GONE);
                     JSONArray jsonArray = new JSONArray(s);
-                    for(int i=0;i<jsonArray.length();i++)
-                    {
+                    for (int i = 0; i < jsonArray.length(); i++) {
 
-                        JSONObject c=jsonArray.getJSONObject(i);
+                        JSONObject c = jsonArray.getJSONObject(i);
 
-                        String username=c.getString("username");
-                        String fullnmae=c.getString("CustomerName");
-                        String date=c.getString("Datecreated");
-                        String amount=c.getString("Debit");
-                        String message=c.getString("Message");
-                        paymentHistoryModels.add(new PaymentHistoryModel(username,fullnmae,amount,date,message));
-                        if(paymentHistoryModels.size()>0)
-                        {
-                            paymentHistoryAdapter=new PaymentHistoryAdapter(getContext(),paymentHistoryModels);
+                        String username = c.getString("username");
+                        String fullnmae = c.getString("CustomerName");
+                        String date = c.getString("Datecreated");
+                        String amount = c.getString("Debit");
+                        String message = c.getString("Message");
+                        paymentHistoryModels.add(new PaymentHistoryModel(username, fullnmae, amount, date, message));
+                        if (paymentHistoryModels.size() > 0) {
+                            paymentHistoryAdapter = new PaymentHistoryAdapter(getContext(), paymentHistoryModels,userBasicData.get("Username"));
                             recyclerView.setAdapter(paymentHistoryAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                             txtNotFound.setVisibility(View.GONE);
-                        }
-                        else
-                        {
+                        } else {
                             txtNotFound.setVisibility(View.VISIBLE);
 
 
@@ -170,7 +158,7 @@ txtNotFound.setVisibility(View.GONE);
 
         @Override
         protected String doInBackground(String... strings) {
-            return new ExtractfromReply().performPost("WSMember","GetPaymentHistory","MemberId="+userBasicData.get("UserID")+"&PageIndex="+"1");
+            return new ExtractfromReply().performPost("WSMember", "GetPaymentHistory", "MemberId=" + userBasicData.get("UserID") + "&PageIndex=" + "1");
 
 
         }

@@ -41,7 +41,7 @@ public class BuyEpinActivity extends AppCompatActivity implements QtyChange {
     RelativeLayout layoutBack;
     ImageView imgPlus, imgMinus;
     int _counter = 1;
-    String _stringVal, pkgid;
+    String _stringVal, pkgid,balance;
     TextView txtQty, txtPkgamt, txtAmtPayable, txtBalance;
     Spinner spinner;
     TextView edtUsername;
@@ -49,7 +49,7 @@ public class BuyEpinActivity extends AppCompatActivity implements QtyChange {
     ArrayList<String> options;
     List<PackageModel> packageModels = new ArrayList<>();
     int value = 0;
-    float amount = 0;
+    float amount = 0,floatbal;
 
     QtyChange otyChanged;
 
@@ -99,6 +99,7 @@ public class BuyEpinActivity extends AppCompatActivity implements QtyChange {
         });
         if (GlobalMethods.isNetworkAvailable(getApplicationContext())) {
             new GetPackages().execute();
+            new GetBalance().execute();
         } else {
             Toast.makeText(getApplicationContext(), getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
         }
@@ -286,5 +287,57 @@ public class BuyEpinActivity extends AppCompatActivity implements QtyChange {
 
         }
     }
+
+    private class GetBalance extends AsyncTask<String, String, String> {
+
+        //ProgressDialog progressDialog = new ProgressDialog(ProfileDetailsActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            if (s.equals("NODATA")) {
+
+
+            } else {
+                try {
+
+                    JSONArray jsonArray = new JSONArray(s);
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject c = jsonArray.getJSONObject(i);
+
+                        balance = c.getString("Balance");
+                      //  pwd = c.getString("TransactionPassword");
+                        float value = Float.parseFloat(balance);
+                        String s1 = String.format("%.2f", value);
+                        floatbal = Float.parseFloat(balance);
+
+                        txtBalance.setText("$" + s1);
+                      //  txtTotal.setText("$" + s1);
+
+                       // Log.e("PWD", pwd);
+                    }
+
+
+                } catch (Exception e) {
+                }
+
+            }
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return new ExtractfromReply().performPost("WSMember", "GetEwalletbalanceTranspwd", "MemberId=" + userBasicData.get("UserID"));
+        }
+    }
+
 
 }

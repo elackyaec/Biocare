@@ -10,26 +10,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.R;
 import com.retail.biocare.model.FundTransferHistoryModel;
-import com.retail.biocare.model.PaymentHistoryModel;
 
 import java.util.List;
 
 
-public class FundTransferHistoryAdapter extends RecyclerView.Adapter<FundTransferHistoryAdapter.DataObjectHolder> {
+public class FundTransferCreditAdapter extends RecyclerView.Adapter<FundTransferCreditAdapter.DataObjectHolder> {
 
     Context context;
     List<FundTransferHistoryModel> mData;
+    String name;
 
-
-    public FundTransferHistoryAdapter(Context context, List<FundTransferHistoryModel> mData) {
+    public FundTransferCreditAdapter(Context context, List<FundTransferHistoryModel> mData, String name) {
         this.context = context;
         this.mData = mData;
+        this.name = name;
     }
-
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder{
 
-TextView txtUsername,txtFullname,txtDate,txtMessage,txtCredit,txtDebit;
+TextView txtUsername,txtFullname,txtDate,txtMessage,txtCredit,txtUserid;
 
         public DataObjectHolder(View itemView) {
             super(itemView);
@@ -38,15 +37,15 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame);
             txtFullname=(TextView)itemView.findViewById(R.id.txt_compeltename);
             txtDate=(TextView)itemView.findViewById(R.id.txt_date);
             txtMessage=(TextView)itemView.findViewById(R.id.txt_sttaus);
-            txtCredit=(TextView)itemView.findViewById(R.id.txt_credit);
-            txtDebit=(TextView)itemView.findViewById(R.id.txt_devit);
+            txtCredit=(TextView)itemView.findViewById(R.id.txtprice);
+        txtUserid=(TextView)itemView.findViewById(R.id.txtFundId);
 
         }
     }
 
     @Override
     public DataObjectHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fundtransferhistory, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fundcredit, parent, false);
 
         DataObjectHolder dataObjectHolder = new DataObjectHolder(view);
 
@@ -60,7 +59,7 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame);
         holder.txtCredit.setText(mData.get(position).getCredit());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtMessage.setText(mData.get(position).getMessage());
-        holder.txtDebit.setText(mData.get(position).getDebit());
+        holder.txtUserid.setText(name);
 
 
 

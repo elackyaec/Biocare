@@ -153,7 +153,7 @@ public class PendingWithdrawFragment extends Fragment {
 
                         if(pendingWithdrawModels.size()>0)
                         {
-                            pendingWFundAdapter=new PendingWFundAdapter(getContext(),pendingWithdrawModels);
+                            pendingWFundAdapter=new PendingWFundAdapter(getContext(),pendingWithdrawModels,userBasicData.get("Username"));
                             recyclerView.setAdapter(pendingWFundAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                             txtNotFound.setVisibility(View.GONE);

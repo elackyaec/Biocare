@@ -13,18 +13,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.R;
 import com.retail.biocare.activity.FundTransferActivity;
 import com.retail.biocare.activity.FundTransferHistoryActivity;
-import com.retail.biocare.activity.PaymentHistoryActivity;
 import com.retail.biocare.activity.PayoutHistoryActivity;
-import com.retail.biocare.activity.PendingWithdrawFundActivity;
 import com.retail.biocare.activity.WithdrawFundActivity;
 import com.retail.biocare.activity.WithdrawListActivity;
-import com.retail.biocare.adapter.WalletAdapter;
 import com.retail.biocare.model.DashboardModel;
 import com.retail.biocare.utils.ExtractfromReply;
 

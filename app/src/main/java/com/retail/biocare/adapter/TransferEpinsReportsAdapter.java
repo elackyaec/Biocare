@@ -67,13 +67,13 @@ TextView txtPinID,txtDate,txtStatus,txtPkg,txtPin,txtAmt,txtFrom,txtTo;
 
     @Override
     public void onBindViewHolder(final DataObjectHolder holder, final int position) {
-        holder.txtPinID.setText("Pin ID : "+mData.get(position).getPinid());
+        holder.txtPinID.setText("Pin ID: "+mData.get(position).getPinid());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtPkg.setText(mData.get(position).getPkgname());
         holder.txtPin.setText(mData.get(position).getPinno());
         holder.txtAmt.setText("₹"+mData.get(position).getAmt());
-        holder.txtFrom.setText("From : "+mData.get(position).getFrom());
-        holder.txtTo.setText("To : "+mData.get(position).getTo());
+        holder.txtFrom.setText("From: "+mData.get(position).getFrom());
+        holder.txtTo.setText("To: "+mData.get(position).getTo());
 
 
 

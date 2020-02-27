@@ -91,7 +91,7 @@ public class TransferEpinsAdapter extends RecyclerView.Adapter<TransferEpinsAdap
 
     @Override
     public void onBindViewHolder(final DataObjectHolder holder, final int position) {
-        holder.txtPinID.setText("Pin ID : " + mData.get(position).getPinid());
+        holder.txtPinID.setText("Pin ID: " + mData.get(position).getPinid());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtPkg.setText(mData.get(position).getPkgname());
 

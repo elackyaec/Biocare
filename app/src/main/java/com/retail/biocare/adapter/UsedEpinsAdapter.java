@@ -62,7 +62,7 @@ txtName=(TextView)itemView.findViewById(R.id.txt_usedname);
     @Override
     public void onBindViewHolder(final DataObjectHolder holder, final int position) {
 holder.txtName.setText(mData.get(position).getUsedname());
-        holder.txtID.setText("Used ID : "+mData.get(position).getId());
+        holder.txtID.setText("Used ID: "+mData.get(position).getId());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtPkg.setText(mData.get(position).getPkgname());
         holder.txtPin.setText(mData.get(position).getPinno());

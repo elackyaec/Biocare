@@ -1,6 +1,7 @@
 package com.retail.biocare.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -182,9 +183,14 @@ public class WithdrawFundActivity extends AppCompatActivity {
             if (s.equals("NODATA")) {
 
 
-            } else if (s.equals("5")) {
-                Toast.makeText(getApplicationContext(), "Fund Withdrawn Successfully", Toast.LENGTH_SHORT).show();
+            } else  {
+
+                Intent intent=new Intent(WithdrawFundActivity.this,MainActivity.class);
+                intent.putExtra("page","2");
+                startActivity(intent);
                 finish();
+                Toast.makeText(getApplicationContext(), "Fund Withdrawn Successfully", Toast.LENGTH_SHORT).show();
+
             }
 
 

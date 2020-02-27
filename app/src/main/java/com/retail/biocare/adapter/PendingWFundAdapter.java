@@ -28,18 +28,19 @@ public class PendingWFundAdapter extends RecyclerView.Adapter<PendingWFundAdapte
     List<PendingWithdrawModel> mData;
     Dialog detailsdialog;
     String username,fullname,w_amt,w_date;
-    String accno,accname,bankcode,branch,bankname;
+    String status;
 
 
-    public PendingWFundAdapter(Context context, List<PendingWithdrawModel> mData) {
+    public PendingWFundAdapter(Context context, List<PendingWithdrawModel> mData,String status) {
         this.context = context;
         this.mData = mData;
+        this.status=status;
     }
 
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder{
 
-TextView txtUsername,txtFullname,txtDate,txtStatus,txtAmount;
+TextView txtUsername,txtFullname,txtDate,txtStatus,txtAmount,txtUserid;
 LinearLayout bglayout;
 Button btnView;
 
@@ -52,6 +53,7 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame) ;
             txtStatus=(TextView)itemView.findViewById(R.id.txt_sttaus) ;
             txtAmount=(TextView)itemView.findViewById(R.id.txt_amt) ;
             btnView=(Button) itemView.findViewById(R.id.btn_view) ;
+            txtUserid=(TextView)itemView.findViewById(R.id.txtFundId) ;
 
             bglayout=(LinearLayout)itemView.findViewById(R.id.statuslayout);
 
@@ -60,7 +62,7 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame) ;
 
     @Override
     public DataObjectHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pendingwithdraw, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pending_withdraw, parent, false);
 
         DataObjectHolder dataObjectHolder = new DataObjectHolder(view);
 
@@ -74,6 +76,7 @@ txtUsername=(TextView)itemView.findViewById(R.id.txt_useerame) ;
         holder.txtFullname.setText(mData.get(position).getFullname());
         holder.txtDate.setText(mData.get(position).getDate());
         holder.txtAmount.setText(mData.get(position).getAmount());
+        holder.txtUserid.setText(status);
 
         holder.btnView.setOnClickListener(new View.OnClickListener() {
             @Override

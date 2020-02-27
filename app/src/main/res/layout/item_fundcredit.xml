@@ -17,9 +17,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="15dp"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
             android:id="@+id/imgIncomeExpense"
             android:src="@drawable/incomeiconpng"
             android:adjustViewBounds="true"
@@ -35,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="10dp">
+                android:layout_marginStart="5dp">
 
 
                 <TextView
@@ -45,7 +44,7 @@
                     android:textStyle="bold"
                     android:text="Siva Bala Vignesh"
                     android:textColor="@color/black"
-                    android:id="@+id/txtName"
+                    android:id="@+id/txt_useerame"
                     />
 
 
@@ -58,17 +57,18 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="3dp">
 
-
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/lightblue"
-                        android:textSize="14sp"
-                        android:id="@+id/txt_username"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:text="Arumanai"/>
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/txt_sttaus"
+                        android:text="Your Payments are in Procesing!"
+                        />
+
+
+
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -76,30 +76,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginBottom="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:id="@+id/txtAmount"
-                        android:text="Amount : "/>
-
-
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,57 +88,44 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <LinearLayout
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_gravity="end">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:visibility="invisible"
-                            android:src="@drawable/tickiconpng"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TDS : 0 %"
-                            android:id="@+id/txtTDS"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginStart="2dp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-
-                        android:layout_gravity="end"
-                        android:layout_marginTop="5dp">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:visibility="invisible"
-                            android:src="@drawable/tickiconpng"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Service Tax : "
-                            android:id="@+id/txtTax"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:layout_marginStart="2dp"/>
-
-                    </LinearLayout>
-
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:id="@+id/txt_compeltename"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Arumanai"/>
 
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:gravity="end"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/tickiconpng"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="27/01/2019"
+                        android:id="@+id/txt_date"
+                        android:textColor="#19b81f"
+                        android:textSize="12sp"
+                        android:layout_marginStart="2dp"/>
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -180,35 +148,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#ededed"
+                android:layout_marginTop="7dp"
                 android:layout_marginEnd="10dp"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="invisible"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_marginStart="10dp"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:src="@drawable/fav_black"
+                    android:src="@drawable/orderpng"
                     android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Fund ID: "
+                    android:text="User ID: "
                     android:textSize="12sp"
                     android:gravity="center_vertical"
                     android:layout_marginStart="4dp"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/black"/>
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:id="@+id/txtFundId"
                     android:textSize="12sp"
                     android:text="0"/>
@@ -224,7 +192,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Net Amount"
+                android:text="Credit Amount"
                 android:gravity="end|top"
                 android:textSize="10sp"/>
 
@@ -235,7 +203,7 @@
                 android:text="₹5,845"
                 android:textSize="20sp"
                 android:textColor="@color/black"
-                android:id="@+id/txt_netamt"
+                android:id="@+id/txtprice"
                 android:gravity="end"/>
 
         </LinearLayout>

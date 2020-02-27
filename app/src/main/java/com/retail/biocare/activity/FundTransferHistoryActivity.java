@@ -1,65 +1,108 @@
 package com.retail.biocare.activity;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.retail.biocare.R;
-import com.retail.biocare.adapter.FundTransferHistoryAdapter;
-import com.retail.biocare.adapter.PaymentHistoryAdapter;
-import com.retail.biocare.model.FundTransferHistoryModel;
-import com.retail.biocare.model.PaymentHistoryModel;
-import com.retail.biocare.utils.ExtractfromReply;
-import com.retail.biocare.utils.GlobalMethods;
-import com.testfairy.h.b.G;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.retail.biocare.SubFragments.FundCreditFragment;
+import com.retail.biocare.SubFragments.FundDebitFragment;
+import com.retail.biocare.SubFragments.PaymentHistoryFragment;
+import com.retail.biocare.SubFragments.PendingWithdrawFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
-
-
 public class FundTransferHistoryActivity extends AppCompatActivity {
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    ViewPagerAdapter adapter;
+    Button btnBack;
     RelativeLayout layoutBack;
-    RecyclerView recyclerView;
-    List<FundTransferHistoryModel> fundTransferHistoryModels;
-    FundTransferHistoryAdapter fundTransferHistoryAdapter;
-    TextView txtNotFound;
 
-    @Override
+    private static final String TAG = "WithdrawListActivity";
+
+    public static boolean isClickable = false;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fundtransferhistory);
-        layoutBack=(RelativeLayout)findViewById(R.id.layout_back);
-        recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
-txtNotFound=(TextView)findViewById(R.id.txt_notfound);
+
+        Intent intent = getIntent();
+        isClickable = intent.getBooleanExtra("isClickable",false);
+
+        layoutBack = (RelativeLayout) findViewById(R.id.layout_back);
+        tabLayout=(TabLayout) findViewById(R.id.tabMessages);
+        viewPager=(ViewPager)findViewById(R.id.viewPagerMessages);
+       // tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#106883"));
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#ff5252"));
+        tabLayout.setSelectedTabIndicatorHeight((int) (3 * getResources().getDisplayMetrics().density));
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+
+
+
+
+        Log.d(TAG, "onCreate: isClickable: "+isClickable);
+
 
         layoutBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 onBackPressed();
             }
         });
+    }
+    private void setupViewPager(ViewPager viewpager) {
 
-        if(GlobalMethods.isNetworkAvailable(getApplicationContext()))
-        {
-            new GetFundHistory().execute();
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(FundCreditFragment.newInstance(), "CREDIT");
+        adapter.addFragment(FundDebitFragment.newInstance(), "DEBIT");
+        viewpager.setAdapter(adapter);
+
+
+    }
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
         }
-        else
-        {
-            Toast.makeText(getApplicationContext(),getString(R.string.no_internet),Toast.LENGTH_SHORT).show();
+
+        @Override
+        public Fragment getItem(int position) {
+            // PrefConnect.writeString(getContext(), PrefConnect.CATEGORY_ID, resp.getCategories().get(position).getCategoryId());
+
+            return mFragmentList.get(position);
         }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+
     }
 
     @Override
@@ -67,83 +110,4 @@ txtNotFound=(TextView)findViewById(R.id.txt_notfound);
         super.onBackPressed();
         finish();
     }
-
-    private class GetFundHistory extends AsyncTask<String, String, String> {
-
-        ProgressDialog progressDialog = new ProgressDialog(FundTransferHistoryActivity.this);
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            progressDialog.setMessage("Please wait");
-            progressDialog.show();
-            fundTransferHistoryModels=new ArrayList<>();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-            progressDialog.dismiss();
-
-            if (s.equals("NODATA")){
-
-
-            }
-            else if(s.equals("[]"))
-            {
-                txtNotFound.setVisibility(View.VISIBLE);
-            }
-
-            else{
-
-                try {
-txtNotFound.setVisibility(View.GONE);
-                    JSONArray jsonArray = new JSONArray(s);
-                    for(int i=0;i<jsonArray.length();i++)
-                    {
-
-                        JSONObject c=jsonArray.getJSONObject(i);
-
-String username=c.getString("username");
-                        String fullnmae=c.getString("CustomerName");
-                        String date=c.getString("Datecreated");
-                        String debit=c.getString("Debit");
-                        String message=c.getString("Message");
-                        String credit=c.getString("Credit");
-
-                        fundTransferHistoryModels.add(new FundTransferHistoryModel(username,fullnmae,credit,debit,message,date));
-                        if(fundTransferHistoryModels.size()>0)
-                        {
-                            fundTransferHistoryAdapter=new FundTransferHistoryAdapter(FundTransferHistoryActivity.this,fundTransferHistoryModels);
-                            recyclerView.setAdapter(fundTransferHistoryAdapter);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(FundTransferHistoryActivity.this));
-                            txtNotFound.setVisibility(View.GONE);
-                        }
-                        else
-                        {
-                            txtNotFound.setVisibility(View.VISIBLE);
-
-
-                        }
-
-                    }
-
-
-                } catch (Exception e) {
-                }
-
-            }
-
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            return new ExtractfromReply().performPost("WSMember","GetFundTransferHistory","MemberId="+userBasicData.get("UserID")+"&PageIndex="+"1");
-
-
-        }
-    }
-
 }

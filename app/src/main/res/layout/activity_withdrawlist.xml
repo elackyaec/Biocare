@@ -55,6 +55,7 @@
             android:background="@color/white"
             app:tabGravity="fill"
             app:tabMode="fixed"
+app:tabTextAppearance="@style/MineCustomTabText"
             app:tabBackground="@drawable/tabselector"
             app:tabSelectedTextColor="@color/black"
             app:tabTextColor="@color/gray">

@@ -1,5 +1,6 @@
 package com.retail.biocare.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.retail.biocare.MainActivity;
 import com.retail.biocare.R;
 import com.retail.biocare.model.Usermodel;
 import com.retail.biocare.utils.ExtractfromReply;
@@ -220,9 +222,11 @@ public class FundTransferActivity extends AppCompatActivity {
             else
             {
 
-                //TODO check s value properly
-                Toast.makeText(getApplicationContext(),"Fund Transferred Successfully",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(FundTransferActivity.this, MainActivity.class);
+                intent.putExtra("page","2");
+                startActivity(intent);
                 finish();
+                Toast.makeText(getApplicationContext(),"Fund Transferred Successfully",Toast.LENGTH_SHORT).show();
             }
 
 

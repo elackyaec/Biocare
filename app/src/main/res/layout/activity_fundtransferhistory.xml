@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -45,34 +46,16 @@
 
     </LinearLayout>
 
-
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_below="@+id/header"
-        android:orientation="vertical">
+        app:tabTextAppearance="@style/MineCustomTabText"
+        android:id="@+id/tabMessages"/>
 
-
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"/>
-    </LinearLayout>
-
-<TextView
-    android:id="@+id/txt_notfound"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="No Transfer Found"
-android:layout_centerInParent="true"
-    android:visibility="gone"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    android:textAlignment="center"
-    android:textColor="@color/black"
-    android:textSize="14sp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewPagerMessages"
+        android:layout_below="@+id/tabMessages"/>
 </RelativeLayout>

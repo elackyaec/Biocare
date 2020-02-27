@@ -142,7 +142,7 @@ String bank=c.getString("Bank");
 
                         if(pendingWithdrawModels.size()>0)
                         {
-                            pendingWFundAdapter=new PendingWFundAdapter(PendingWithdrawFundActivity.this,pendingWithdrawModels);
+                            pendingWFundAdapter=new PendingWFundAdapter(PendingWithdrawFundActivity.this,pendingWithdrawModels,userBasicData.get("Username"));
                             recyclerView.setAdapter(pendingWFundAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(PendingWithdrawFundActivity.this));
                             txtNotFound.setVisibility(View.GONE);

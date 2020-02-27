@@ -14,10 +14,11 @@ import androidx.fragment.app.Fragment;
 import com.retail.biocare.R;
 import com.retail.biocare.activity.AllIncomeReportActivity;
 import com.retail.biocare.activity.BinaryReportActivity;
+import com.retail.biocare.activity.RewardReportActivity;
 
 public class FragmentReports extends Fragment {
     private View rootView;
-    LinearLayout binaryreportslayout,directreportlayout,levelreportlayout,allincomelayout;
+    LinearLayout binaryreportslayout,directreportlayout,levelreportlayout,allincomelayout,rewardreportlayout;
 
     @Nullable
     @Override
@@ -28,6 +29,7 @@ binaryreportslayout=(LinearLayout)rootView.findViewById(R.id.binaryreportslayout
         directreportlayout=(LinearLayout)rootView.findViewById(R.id.directreportlayout);
         levelreportlayout=(LinearLayout)rootView.findViewById(R.id.levelreportlayout);
         allincomelayout=(LinearLayout)rootView.findViewById(R.id.allincomelayout);
+        rewardreportlayout=(LinearLayout)rootView.findViewById(R.id.rewardreportlayout);
 
 binaryreportslayout.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -60,6 +62,13 @@ binaryreportslayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getContext(), AllIncomeReportActivity.class);
+                startActivity(intent);
+            }
+        });
+        rewardreportlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), RewardReportActivity.class);
                 startActivity(intent);
             }
         });
