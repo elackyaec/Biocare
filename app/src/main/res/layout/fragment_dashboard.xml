@@ -357,7 +357,7 @@
 
 
                 <TextView
-                    android:text="START | lunch 20.00 | Dinner 60.00 | Travel 60.00 | Doctor 5000.00 | lunch 20.00 | Dinner 60.00 | Travel 60.00 | Doctor 5000.00 | END"
+                    android:text="Notification"
                     android:id="@+id/txtNotification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

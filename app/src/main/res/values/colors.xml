@@ -46,8 +46,12 @@
 <color name="aqua">#17C9C9</color>
     <color name="pink2">#cc00cc</color>
     <color name="green5">#47BB5E</color>
+    <color name="gray_bg_siva">#efeeee</color>
+
 
     <color name="textblue">#1a1665</color>
     <color name="lightgray3">#D8D6D6</color>
+    <color name="green1">#108114</color>
+
 
 </resources>
