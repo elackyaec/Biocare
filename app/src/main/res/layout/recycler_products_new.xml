@@ -70,7 +70,7 @@
 
    />
 <Button
-    android:id="@+id/btn_add"
+    android:id="@+id/btnAdd"
     android:layout_width="50dp"
     android:layout_height="30dp"
     android:background="@color/colorPrimary"

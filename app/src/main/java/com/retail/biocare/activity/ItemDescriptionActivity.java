@@ -6,13 +6,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.signature.ObjectKey;
+import com.retail.biocare.Models.CartItemsModels;
 import com.retail.biocare.R;
+import com.retail.biocare.StaticData.StaticDatas;
 
 import static com.retail.biocare.StaticData.StaticDatas.hostURL;
 import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
@@ -27,11 +30,11 @@ public class ItemDescriptionActivity extends AppCompatActivity implements Quanti
     private static final String TAG = "ItemDescriptionActivity";
 
     private ImageView imgItem;
-    private Float floatPrice;
+    private Float floatPrice, floatTax, floatShipping;
     private TextView txtItemname, txtCategory, txtDesc, txtPrice, txtQuantity, txtCartTotal;
 
 
-    private String intentImage, intentIteName, intentPrice, intetnDescription , secondLine;
+    private String intentImage, intentIteName, intentPrice, intetnDescription , secondLine, intentItemId;
 
 
     private int itemCount = 1;
@@ -76,9 +79,12 @@ public class ItemDescriptionActivity extends AppCompatActivity implements Quanti
 
         intentImage = intent.getStringExtra("itemImage");
         intentIteName = intent.getStringExtra("itemName");
+        intentItemId = intent.getStringExtra("itemId");
         intentPrice = intent.getStringExtra("itemPrice");
         intetnDescription = intent.getStringExtra("itemDescription");
         floatPrice = Float.parseFloat(intent.getStringExtra("floatPrice"));
+        floatTax = Float.parseFloat(intent.getStringExtra("floatTax"));
+        floatShipping = Float.parseFloat(intent.getStringExtra("floatShipping"));
 
         secondLine ="Size: "+intent.getStringExtra("itemSize") + "     Color: "+intent.getStringExtra("itemColor");
         txtCategory.setText(secondLine);
@@ -114,7 +120,25 @@ public class ItemDescriptionActivity extends AppCompatActivity implements Quanti
         });
 
 
+        findViewById(R.id.btnAddtocart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+                if (StaticDatas.addedItemIds.contains(intentItemId)){
+                    Toast.makeText(ItemDescriptionActivity.this, "Item is already in the cart", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    StaticDatas.addedItemIds.add(intentItemId);
+                    StaticDatas.cartDetails.add(new CartItemsModels(intentItemId, intentIteName, String.valueOf(itemCount), intentPrice, floatPrice, floatTax, floatShipping ));
+                    Toast.makeText(ItemDescriptionActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
+
+
+            }
+        });
 
 
 

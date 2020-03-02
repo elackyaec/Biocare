@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login_test"></activity>
+        <activity android:name=".BillingActivity"></activity>
+        <activity android:name=".Login_test" />
         <activity android:name=".TestinomialSaveActivity" />
         <activity android:name=".LoginTimingActivity" />
         <activity android:name=".ChangePasswordActivity" />
@@ -63,27 +64,27 @@
         <activity
             android:name=".activity.BuyEpinActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.WithdrawFundActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.FundTransferActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.PendingWithdrawFundActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.PaymentHistoryActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.PayoutHistoryActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.ProductActivity" />
         <activity android:name=".activity.ItemDescriptionActivity" />
         <activity android:name=".activity.AllIncomeReportActivity" />
@@ -91,7 +92,9 @@
         <activity android:name=".activity.WithdrawListActivity" />
         <activity android:name=".activity.RewardReportActivity" />
         <activity android:name=".activity.FundTransferHistoryActivity" />
-
+        <activity android:name=".activity.ViewCartActivity" />
+        <activity android:name=".activity.CheckoutActivity" />
+        <activity android:name=".activity.OrdersActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,8 @@
 package com.retail.biocare.StaticData;
 
+import com.retail.biocare.Models.CartItemsModels;
+import com.retail.biocare.Models.OrderSummaryModel;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,4 +22,12 @@ public class StaticDatas {
 
 
     public static boolean dashboadrdLoaded = false;
+
+
+    //Cart Array
+    public static ArrayList<CartItemsModels> cartDetails = new ArrayList<>();
+    public static ArrayList<String> addedItemIds = new ArrayList<>();
+
+    //OrderSummary
+    public static ArrayList<OrderSummaryModel> orderSummaryDetails = new ArrayList<>();
 }

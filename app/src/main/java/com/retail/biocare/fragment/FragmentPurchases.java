@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.retail.biocare.R;
+import com.retail.biocare.activity.OrdersActivity;
 import com.retail.biocare.activity.ProductActivity;
 
 public class FragmentPurchases extends Fragment {
@@ -26,6 +27,13 @@ public class FragmentPurchases extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), ProductActivity.class));
+            }
+        });
+
+        rootView.findViewById(R.id.layoutMyorders).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), OrdersActivity.class));
             }
         });
 

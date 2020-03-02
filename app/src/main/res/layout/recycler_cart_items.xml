@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtItemname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_gravity="center"
+            android:text="Tomato Sauce"/>
+
+        <TextView
+            android:id="@+id/txt_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:text="$3.00"/>
+        <Spinner
+            android:id="@+id/spinnerQty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+
+            android:layout_weight="1"
+            android:background="@null"
+            android:dropDownVerticalOffset="30dp"
+            android:textSize="14dp"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:id="@+id/imgRemove"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/cancel"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="1dp"
+        android:text="Options"
+        android:lineSpacingMultiplier="1.2"
+        android:id="@+id/txtOtion"/>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    android:background="@color/black"
+    android:layout_marginTop="5dp"/>
+
+</LinearLayout>
