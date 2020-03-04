@@ -15,8 +15,7 @@
         android:paddingTop="20dp"
         android:paddingBottom="10dp"
         android:paddingStart="5dp"
-        android:id="@+id/header"
-        android:elevation="3dp">
+        android:id="@+id/header">
         <Button
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -51,6 +50,80 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/colorPrimary">
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:elevation="3dp"
+                    android:background="@drawable/btn_bg_white10dp_curve">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/rupee"
+                                android:layout_marginTop="5dp"
+                                android:tint="@color/colorPrimary"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/txtBalance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="$5000"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txt_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Available E - Wallet Balance"
+                                android:textColor="@color/black"
+                                android:textAlignment="center"
+
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -116,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:elevation="3dp"
                 android:background="@color/white"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical">
 
@@ -177,12 +251,22 @@
     android:layout_marginBottom="10dp"
     android:orientation="horizontal">
 
+
+
     <RadioButton
-        android:id="@+id/radioCod"
+        android:id="@+id/radioWallet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:checked="true"
         android:layout_weight="1"
+        android:text="Wallet"/>
+
+    <RadioButton
+        android:id="@+id/radioCod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="gone"
         android:text="COD"/>
 
     <RadioButton
@@ -191,13 +275,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Online"/>
-
-    <RadioButton
-        android:id="@+id/radioWallet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Wallet"/>
 
 </RadioGroup>
 </LinearLayout>
@@ -348,7 +425,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@color/black"
-                        android:text="Item Total"
+                        android:text="Total Price"
                         android:textSize="14sp" />
 
                     <TextView
@@ -376,7 +453,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@color/black"
-                        android:text="Sales Tax "
+                        android:text="Tax "
                         android:textSize="14sp" />
 
                     <TextView
@@ -404,7 +481,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@color/black"
-                        android:text="Delivery Charges "
+                        android:text="Shipping and Handling"
                         android:textSize="14sp" />
 
                     <TextView
@@ -420,32 +497,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/black"
-                        android:text="Discount "
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/txtDiscount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:gravity="left"
-                        android:text="$0.00 "
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -495,7 +546,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="To Pay"
+                        android:text="Total Amount"
                         android:textSize="14sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />

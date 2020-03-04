@@ -21,7 +21,11 @@ public class StaticDatas {
     public static Map<String, String> dashboardMap = new HashMap<>();
 
 
-    public static boolean dashboadrdLoaded = false;
+    public static boolean dashboadrdLoaded = false, isSecondTime=false;
+
+    //Dashboard
+    public static String AvailableBalance, TotalEarnings, DirectIncome, BinaryIncome, LevelIncome, TotalWithdrawals, FundTrasnfered, FundReceived;
+    public static String TotalOrders, NewOrders, UsedEpins, CompletedOrders, UnusedEpins, Kyc="", MessageSent, Inbox, Notification="";
 
 
     //Cart Array

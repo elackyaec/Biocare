@@ -1,6 +1,7 @@
 package com.retail.biocare.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.Models.PendingOrdersModel;
 import com.retail.biocare.R;
+import com.retail.biocare.activity.OrderDetailActivity;
 
 import java.util.ArrayList;
 
@@ -33,16 +35,28 @@ public class PendingOrdersAdapter extends  RecyclerView.Adapter<PendingOrdersAda
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PendingOrdersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PendingOrdersViewHolder holder, final int position) {
 
         holder.txtName.setText(pendingOrderDetails.get(position).getUserName() + "("+ pendingOrderDetails.get(position).getUserId() +")");
         holder.txtAddress.setText(pendingOrderDetails.get(position).getUserAddress());
-        holder.txtPaymentType.setText(pendingOrderDetails.get(position).getOrderDate());
+        holder.txtPaymentType.setText(pendingOrderDetails.get(position).getPaymentType());
+        holder.txtOrderdate.setText(pendingOrderDetails.get(position).getOrderDate());
         holder.txtOrderstatus.setText(pendingOrderDetails.get(position).getOrderStatus());
         holder.txtItemsCount.setText(pendingOrderDetails.get(position).getItemCount() + " Items");
         //holder.txtCost.setText(userBasicData.get("Currency")+pendingOrderDetails.get(position).getOrderAmount());
         holder.txtCost.setText(pendingOrderDetails.get(position).getOrderAmount());
         holder.txtOrderId.setText(pendingOrderDetails.get(position).getOrderId());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, OrderDetailActivity.class);
+                intent.putExtra("orderId", pendingOrderDetails.get(position).getOrderId());
+                intent.putExtra("orderStatus", pendingOrderDetails.get(position).getOrderStatus());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

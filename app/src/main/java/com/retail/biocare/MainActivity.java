@@ -273,6 +273,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                     dialog.cancel();
+                                StaticDatas.dashboadrdLoaded = false;
+                                StaticDatas.isSecondTime = false;
                                 Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();

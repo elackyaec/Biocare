@@ -52,7 +52,7 @@ public class FragmentPendingOrders extends Fragment {
 
     private void setData() {
 
-
+        new GetPendingOrders().execute("");
 
     }
 
@@ -83,7 +83,7 @@ public class FragmentPendingOrders extends Fragment {
 
             progressDialog.dismiss();
 
-            if (!s.equalsIgnoreCase("NODATA")){
+            if (s.equalsIgnoreCase("NODATA")){
                 Log.d(TAG, "onPostExecute:  "+s);
             }
             else{
@@ -100,14 +100,15 @@ public class FragmentPendingOrders extends Fragment {
                             orderId = c.getString("OrderId");
                             userName = c.getString("Name");
                             userId = c.getString("Username");
-                            userAddress = "Address";  //ToDo
+                            userAddress = c.getString("shipadd1")+", "+c.getString("shipadd2")+", "+c.getString("shipcity");
                             orderDate = c.getString("Date");
                             orderStatus = c.getString("ostatus");
-                            itemCount = "0"; //ToDo
+                            itemCount = c.getString("TotalQty");
                             paymentType = c.getString("PaymentMethod");
                             orderAmount = c.getString("Total");
 
-                            pendingOrderDetails.add(new PendingOrdersModel(orderId, userName, userId, userAddress, orderDate, orderStatus, itemCount, paymentType, orderAmount));
+                            if (!orderStatus.equalsIgnoreCase("Completed") && !orderStatus.equalsIgnoreCase("Delivered"))
+                                pendingOrderDetails.add(new PendingOrdersModel(orderId, userName, userId, userAddress, orderDate, orderStatus, itemCount, paymentType, orderAmount));
 
                         }
 

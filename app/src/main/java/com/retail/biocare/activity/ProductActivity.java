@@ -123,7 +123,9 @@ public class ProductActivity extends AppCompatActivity {
                         itemDescription = c.getString("description");
                         itemSize = c.getString("size");
                         itemColor = c.getString("color");
-                        mrpprice1 = c.getString("mrpprice1");
+                        //mrpprice1 = c.getString("mrpprice1");
+                        //Changed on 03/03/2020 @ 16:06
+                        mrpprice1 = c.getString("memberprice1");
                         shipcharges1 = c.getString("shipcharges1");
                         categoryId = c.getString("CategoryId");
                         subCategoryId = c.getString("SubCategoryId");

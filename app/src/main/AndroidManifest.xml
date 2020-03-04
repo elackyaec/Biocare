@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BillingActivity"></activity>
+        <activity android:name=".DeliveredOrdersActivity"></activity>
+        <activity android:name=".BillingActivity" />
         <activity android:name=".Login_test" />
         <activity android:name=".TestinomialSaveActivity" />
         <activity android:name=".LoginTimingActivity" />
@@ -95,6 +96,7 @@
         <activity android:name=".activity.ViewCartActivity" />
         <activity android:name=".activity.CheckoutActivity" />
         <activity android:name=".activity.OrdersActivity" />
+        <activity android:name=".activity.OrderDetailActivity" />
     </application>
 
 </manifest>

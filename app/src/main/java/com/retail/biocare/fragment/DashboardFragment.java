@@ -36,7 +36,6 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
-import com.retail.biocare.MainActivity;
 import com.retail.biocare.R;
 import com.retail.biocare.StaticData.StaticDatas;
 import com.retail.biocare.adapter.DashboardAdapter;
@@ -159,7 +158,7 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
         txtInbox = view.findViewById(R.id.txtInbox);
         imgKyc = view.findViewById(R.id.imgKyc);
 
-       // txtNotification.setSelected(true);
+        // txtNotification.setSelected(true);
 
         if (dashboadrdLoaded) {
             txtNotification.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -183,8 +182,48 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
 
         //initChart();
 
-        if (!dashboadrdLoaded && shouldAsync)
+        if (!dashboadrdLoaded && shouldAsync) {
             new GetDashBoard().execute();
+        } else {
+            if (StaticDatas.isSecondTime) {
+                txtBalance.setText(userBasicData.get("Currency") + StaticDatas.AvailableBalance);
+                txtTotalEarning.setText(userBasicData.get("Currency") + StaticDatas.TotalEarnings);
+                txtDirectIncome.setText(userBasicData.get("Currency") + StaticDatas.DirectIncome);
+                txtBinaryIncome.setText(userBasicData.get("Currency") + StaticDatas.BinaryIncome);
+                txtLevelIncome.setText(userBasicData.get("Currency") + StaticDatas.LevelIncome);
+                txttotalWithdrawls.setText(userBasicData.get("Currency") + StaticDatas.TotalWithdrawals);
+                txtFundTrasnfered.setText(userBasicData.get("Currency") + StaticDatas.FundTrasnfered);
+                txtFundReceived.setText(userBasicData.get("Currency") + StaticDatas.FundReceived);
+                txtTotalOrders.setText(StaticDatas.TotalOrders);
+                txtNewOrders.setText(StaticDatas.NewOrders);
+                txtUsedEpins.setText(StaticDatas.UsedEpins);
+                txtCompletedOrders.setText(StaticDatas.CompletedOrders);
+                txtUnusedEpins.setText("Unused Epins=" + StaticDatas.UnusedEpins);
+                txtKyc.setText(StaticDatas.Kyc.toUpperCase());
+
+                if (StaticDatas.Kyc.equalsIgnoreCase("nill")) {
+
+                    imgKyc.setImageResource(R.drawable.cautionpng);
+                } else if (StaticDatas.Kyc.equalsIgnoreCase("pending")) {
+                    imgKyc.setImageResource(R.drawable.pending);
+
+                } else if (StaticDatas.Kyc.equalsIgnoreCase("Approved")) {
+
+                    imgKyc.setImageResource(R.drawable.greentick);
+
+                }
+
+                txtMessageSent.setText(StaticDatas.MessageSent);
+                txtInbox.setText(StaticDatas.Inbox);
+
+                // txtNotification.setSele
+                txtNotification.setText(Html.fromHtml(StaticDatas.Notification) + "                                         ");
+                txtNotification.setSelected(true);
+
+
+                initChart();
+            }
+        }
 
        /* RecyclerView recycler_TopPicks = view.findViewById(R.id.recycler_TopPicks);
         TopPicksRecyclerAdapter topPicksRecyclerAdapter = new TopPicksRecyclerAdapter(getContext());
@@ -295,9 +334,7 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
             entries.add(new PieEntry(Float.parseFloat("0")));
             entries.add(new PieEntry(Float.parseFloat("2")));
             entries.add(new PieEntry(Float.parseFloat("0")));
-        }
-
-        else {
+        } else {
             entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("TotalOrders"))));
             entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("NewOrders"))));
             entries.add(new PieEntry(Float.parseFloat(dashboardMap.get("CompletedOrders"))));
@@ -438,6 +475,7 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
 
             if (!s.equalsIgnoreCase("NODATA")) {
                 dashboadrdLoaded = true;
+                StaticDatas.isSecondTime = true;
 
                 try {
                     JSONArray jsonArray = new JSONArray(s);
@@ -465,43 +503,58 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
 
 
                     txtBalance.setText(userBasicData.get("Currency") + jsonObject.getString("AvailableBalance"));
+                    StaticDatas.AvailableBalance = jsonObject.getString("AvailableBalance");
                     txtTotalEarning.setText(userBasicData.get("Currency") + jsonObject.getString("TotalEarnings"));
+                    StaticDatas.TotalEarnings = jsonObject.getString("TotalEarnings");
                     txtDirectIncome.setText(userBasicData.get("Currency") + jsonObject.getString("DirectIncome"));
+                    StaticDatas.DirectIncome = jsonObject.getString("DirectIncome");
                     txtBinaryIncome.setText(userBasicData.get("Currency") + jsonObject.getString("BinaryIncome"));
+                    StaticDatas.BinaryIncome = jsonObject.getString("BinaryIncome");
                     txtLevelIncome.setText(userBasicData.get("Currency") + jsonObject.getString("LevelIncome"));
+                    StaticDatas.LevelIncome = jsonObject.getString("LevelIncome");
                     txttotalWithdrawls.setText(userBasicData.get("Currency") + jsonObject.getString("TotalWithdrawals"));
+                    StaticDatas.TotalWithdrawals = jsonObject.getString("TotalWithdrawals");
                     txtFundTrasnfered.setText(userBasicData.get("Currency") + jsonObject.getString("FundTrasnfered"));
+                    StaticDatas.FundTrasnfered = jsonObject.getString("FundTrasnfered");
                     txtFundReceived.setText(userBasicData.get("Currency") + jsonObject.getString("FundReceived"));
+                    StaticDatas.FundReceived = jsonObject.getString("FundReceived");
                     txtTotalOrders.setText(jsonObject.getString("TotalOrders"));
+                    StaticDatas.TotalOrders = jsonObject.getString("TotalOrders");
                     txtNewOrders.setText(jsonObject.getString("NewOrders"));
-                    txtUsedEpins.setText("Used Epins="+jsonObject.getString("UsedEpins"));
+                    StaticDatas.NewOrders = jsonObject.getString("NewOrders");
+                    txtUsedEpins.setText("Used Epins=" + jsonObject.getString("UsedEpins"));
+                    StaticDatas.UsedEpins = jsonObject.getString("UsedEpins");
                     txtCompletedOrders.setText(jsonObject.getString("CompletedOrders"));
-                    txtUnusedEpins.setText("Unused Epins="+jsonObject.getString("UnusedEpins"));
+                    StaticDatas.CompletedOrders = jsonObject.getString("CompletedOrders");
+                    txtUnusedEpins.setText("Unused Epins=" + jsonObject.getString("UnusedEpins"));
+                    StaticDatas.UnusedEpins = jsonObject.getString("UnusedEpins");
                     txtKyc.setText(jsonObject.getString("Kyc").toUpperCase());
+                    StaticDatas.Kyc = jsonObject.getString("Kyc").toUpperCase();
 
-                    if (jsonObject.getString("Kyc").equalsIgnoreCase("nill")){
+                    if (jsonObject.getString("Kyc").equalsIgnoreCase("nill")) {
 
                         imgKyc.setImageResource(R.drawable.cautionpng);
-                    }
-                    else if (jsonObject.getString("Kyc").equalsIgnoreCase("pending")){
+                    } else if (jsonObject.getString("Kyc").equalsIgnoreCase("pending")) {
                         imgKyc.setImageResource(R.drawable.pending);
 
-                    }
-                    else if (jsonObject.getString("Kyc").equalsIgnoreCase("Approved")){
+                    } else if (jsonObject.getString("Kyc").equalsIgnoreCase("Approved")) {
 
                         imgKyc.setImageResource(R.drawable.greentick);
 
                     }
 
                     txtMessageSent.setText(jsonObject.getString("MessageSent"));
+                    StaticDatas.MessageSent = jsonObject.getString("MessageSent");
                     txtInbox.setText(jsonObject.getString("Inbox"));
+                    StaticDatas.Inbox = jsonObject.getString("Inbox");
 
-                   // txtNotification.setSele
-                    txtNotification.setText(Html.fromHtml(jsonObject.getString("Notification"))+"                                         ");
+                    // txtNotification.setSele
+                    txtNotification.setText(Html.fromHtml(jsonObject.getString("Notification")) + "                                         ");
                     txtNotification.setSelected(true);
 
 
                     initChart();
+
 
                 } catch (Exception e) {
                     Log.e(TAG, "onPostExecute: ", e);

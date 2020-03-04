@@ -1,25 +1,20 @@
-package com.retail.biocare.SubFragments;
+package com.retail.biocare;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.Models.CompletedOrderModel;
 import com.retail.biocare.Models.PendingOrdersModel;
-import com.retail.biocare.R;
 import com.retail.biocare.StaticData.StaticDatas;
-import com.retail.biocare.adapter.CompletedOrdersAdapter;
+import com.retail.biocare.adapter.DeliveredRecyclerAdapter;
 import com.retail.biocare.utils.ExtractfromReply;
 
 import org.json.JSONArray;
@@ -27,43 +22,44 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class FragmentCompletedOrders extends Fragment {
+public class DeliveredOrdersActivity extends AppCompatActivity {
 
-    private static final String TAG = "FragmentCompletedOrders";
-    private View rootView;
+    private static final String TAG = "DeliveredOrdersActivity";
 
-    private ArrayList<CompletedOrderModel> completedOrderModel = new ArrayList<>();
-    CompletedOrdersAdapter completedOrdersAdapter;
+    private DeliveredRecyclerAdapter  deliveredRecyclerAdapter;
+    private ArrayList<CompletedOrderModel> deliveredOrderDetails = new ArrayList<>();
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_delivered_orders);
 
-        rootView = inflater.inflate(R.layout.fragment_completed_orders, container, false);
+        findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        initRecyclerView();
-        setData();
-
-        return rootView;
+        intRecycler();
+        getData();
     }
 
-    private void setData() {
-        new GetCompletedOrders().execute("");
-
+    private void getData() {
+        new GetDeliveredOrders().execute("");
     }
 
-    private void initRecyclerView() {
-
-        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerCompleted);
-        completedOrdersAdapter = new CompletedOrdersAdapter(getContext(), completedOrderModel);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(completedOrdersAdapter);
-
+    private void intRecycler() {
+        RecyclerView recyclerDeliveredOrders = findViewById(R.id.recyclerDeliveredOrders);
+        deliveredRecyclerAdapter = new DeliveredRecyclerAdapter(this, deliveredOrderDetails);
+        recyclerDeliveredOrders.setAdapter(deliveredRecyclerAdapter);
+        recyclerDeliveredOrders.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private class GetCompletedOrders extends AsyncTask<String, String, String> {
+    private class GetDeliveredOrders extends AsyncTask<String, String, String> {
 
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        ProgressDialog progressDialog = new ProgressDialog(DeliveredOrdersActivity.this);
 
         @Override
         protected void onPreExecute() {
@@ -102,16 +98,16 @@ public class FragmentCompletedOrders extends Fragment {
                         paymentType = c.getString("PaymentMethod");
                         orderAmount = c.getString("Total");
 
-                        if (orderStatus.equalsIgnoreCase("Completed") || orderStatus.equalsIgnoreCase("Delivered"))
-                            completedOrderModel.add(new CompletedOrderModel(orderId, userName, userId, userAddress, orderDate, orderStatus, itemCount, paymentType, orderAmount));
+                        if (orderStatus.equalsIgnoreCase("Delivered"))
+                            deliveredOrderDetails.add(new CompletedOrderModel(orderId, userName, userId, userAddress, orderDate, orderStatus, itemCount, paymentType, orderAmount));
 
                     }
 
-                    completedOrdersAdapter.notifyDataSetChanged();
+                    deliveredRecyclerAdapter.notifyDataSetChanged();
                 }
                 catch (Exception e){
                     Log.e(TAG, "onPostExecute: ",e );
-                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DeliveredOrdersActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }

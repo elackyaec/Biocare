@@ -17,6 +17,8 @@ import com.retail.biocare.R;
 import com.retail.biocare.StaticData.StaticDatas;
 import com.retail.biocare.adapter.OrderSummaryAdapter;
 
+import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
+
 public class CheckoutActivity extends AppCompatActivity {
 
     private static final String TAG = "CheckoutActivity";
@@ -24,7 +26,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private CheckoutCartModel checkoutCartModel;  //dt1
     private CheckoutOrderModel checkoutOrderModel; //dt2;
 
-    private TextView txtSubtotal, txtSalesTax, txtDeliverycharge, txtDiscount, txtTotal;
+    private TextView txtSubtotal, txtSalesTax, txtDeliverycharge, txtDiscount, txtTotal, txtBalance;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,9 +58,9 @@ public class CheckoutActivity extends AppCompatActivity {
         });
 
         txtSubtotal = findViewById(R.id.txtSubtotal);
+        txtBalance = findViewById(R.id.txtBalance);
         txtSalesTax = findViewById(R.id.txtSalesTax);
         txtDeliverycharge = findViewById(R.id.txtDeliverycharge);
-        txtDiscount = findViewById(R.id.txtDiscount);
         txtTotal = findViewById(R.id.txtTotal);
 
         initRecycler();
@@ -92,10 +94,10 @@ public class CheckoutActivity extends AppCompatActivity {
         txtSubtotal.setText(StaticDatas.userBasicData.get("Currency") + String.format("%.2f", itemTotal));
         txtSalesTax.setText(StaticDatas.userBasicData.get("Currency") + String.format("%.2f", taxTotal));
         txtDeliverycharge.setText(StaticDatas.userBasicData.get("Currency") + String.format("%.2f", shippingTotal));
-        txtDiscount.setText(StaticDatas.userBasicData.get("Currency") + String.format("%.2f", discountTotal));
 
         txtTotal.setText(StaticDatas.userBasicData.get("Currency") + String.format("%.2f", totalPrice));
 
+        txtBalance.setText(userBasicData.get("Currency") + StaticDatas.AvailableBalance);
 
     }
 
