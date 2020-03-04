@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -53,28 +52,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_white3_curve"
             android:orientation="vertical">
 
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/profile"
+                        android:layout_marginLeft="10dp"
                         android:tint="@color/black"/>
 
 
@@ -93,32 +95,30 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray" />
+               
 
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/layout_curve_bg_stroke"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
                         android:src="@drawable/zipcode_icon"
                         android:tint="@color/black"/>
 
@@ -148,22 +148,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/city_icon"
+                        android:layout_marginLeft="10dp"
                         android:tint="@color/black"/>
 
 
@@ -182,33 +184,31 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray" />
+
 
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/city_icon"
+                        android:layout_marginLeft="10dp"
                         android:tint="@color/black"/>
 
 
@@ -237,22 +237,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/zipcode_icon"
+                        android:layout_marginLeft="10dp"
                         android:tint="@color/black"/>
 
 
@@ -271,32 +273,30 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/gray" />
+
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/layout_curve_bg_stroke"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/password_icon"
+                        android:layout_marginLeft="10dp"
                         android:tint="@color/black"/>
 
 
@@ -326,22 +326,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/layout_curve_bg_stroke"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/email_icon"
+                        android:layout_marginLeft="10dp"
                         android:tint="@color/black"/>
 
 
@@ -354,7 +356,7 @@
                         android:background="@android:color/transparent"
                         android:hint="Email"
 
-                        android:inputType="number"
+                        android:inputType="textEmailAddress"
                         android:textSize="14sp" />
 
 
@@ -375,8 +377,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/btn_bg_cp_curve"
                 android:text="Close"
+                android:layout_margin="20dp"
                 android:textColor="@color/white" />
         </LinearLayout>
     </ScrollView>

@@ -42,7 +42,7 @@ public class FragmentProfile extends Fragment {
 
     ProfileUpdated profileUpdated;
 
-    public static TextView txtName;
+    public static TextView txtName,txtAddressLine1,txtAddressLine2,txtCity,txtCountry;
 
     public FragmentProfile(ProfileUpdated profileUpdated) {
         this.profileUpdated = profileUpdated;
@@ -55,8 +55,17 @@ public class FragmentProfile extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         txtName = rootView.findViewById(R.id.txtName);
+        txtAddressLine1 = rootView.findViewById(R.id.txt_addressline1);
+        txtAddressLine2 = rootView.findViewById(R.id.txt_addressline2);
+        txtCity = rootView.findViewById(R.id.txtCity);
+        txtCountry = rootView.findViewById(R.id.txt_country);
+
         //txtName.setText(StaticDatas.userBasicData.get("Name"));
         txtName.setText(userProfileData.get("Firstname")+" "+userProfileData.get("Lastname"));
+        txtAddressLine1.setText(userProfileData.get("AddressLine1"));
+        txtAddressLine2.setText(userProfileData.get("AddressLine2"));
+        txtCity.setText(userProfileData.get("City")+", "+userProfileData.get("State")+" - "+userProfileData.get("Zipcode"));
+        txtCountry.setText(userProfileData.get("Country"));
 
         ImageView imgProfile = rootView.findViewById(R.id.imgProfile);
 

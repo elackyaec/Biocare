@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+>
 
     <LinearLayout
         android:id="@+id/header"
@@ -52,194 +52,241 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@drawable/btn_bg_white3_curve"
         android:orientation="vertical">
-
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Contact Name"
-    android:textSize="13sp"
-    android:inputType="text"
-    android:layout_marginTop="10dp"
-    android:background="@android:color/transparent"
-    android:textColor="@color/black"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+
+                android:background="@drawable/layout_curve_bg_stroke">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact Name"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="7"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="7"
+                    android:background="@drawable/layout_curve_bg_stroke"
+
+                    android:orientation="vertical">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="+1"
+                        android:textSize="13sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/layout_curve_bg_stroke"
+
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile"
+                        android:inputType="number"
+                        android:textSize="13sp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+
+                android:background="@drawable/layout_curve_bg_stroke">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="+1"
+                    android:hint="Street Address, P.O box, etc"
+                    android:inputType="text"
                     android:textSize="13sp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
                     android:background="@android:color/transparent"
                     android:textColor="@color/black"/>
-                <View
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+
+                android:background="@drawable/layout_curve_bg_stroke">
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/lightgray"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_height="wrap_content"
+                    android:hint="Apt, suit, unit, etc"
+                    android:inputType="text"
+                    android:textSize="13sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Country"
+                    android:inputType="text"
+                    android:textSize="13sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="State / Province"
+                    android:inputType="text"
+                    android:textSize="13sp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="City"
+                    android:inputType="text"
+                    android:textSize="13sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center" android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/layout_curve_bg_stroke"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Zip / Postal Code"
+                    android:inputType="number"
+                    android:textSize="13sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center" android:background="@android:color/transparent"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
 
-    android:orientation="vertical">
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mobile"
-        android:inputType="number"
-        android:textSize="13sp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/transparent"
-        android:textColor="@color/black"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/lightgray"
-        android:layout_marginTop="10dp"/>
-</LinearLayout>
-
-
-
-        </LinearLayout>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Street Address, P.O box, etc"
-            android:inputType="text"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Apt, suit, unit, etc"
-            android:inputType="text"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Country"
-            android:inputType="text"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="State / Province"
-            android:inputType="text"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="City"
-            android:inputType="text"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Zip / Postal Code"
-            android:inputType="number"
-            android:textSize="13sp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/lightgray"
-            android:layout_marginTop="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Set as default Shipping Address"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                android:layout_weight="1"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Set as default Shipping Address"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:layout_weight="1"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bg_cp_curve"
+                android:layout_marginTop="10dp"
+                android:text="SAVE"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"/>
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginTop="30dp"
-            android:text="SAVE"
-            android:textColor="@color/white"/>
+
+
     </LinearLayout>
 </ScrollView>
 </LinearLayout>

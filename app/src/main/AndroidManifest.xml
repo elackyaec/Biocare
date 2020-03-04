@@ -40,13 +40,15 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.ManageBankActivity" />
+        <activity android:name=".activity.ManageBankActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.ChangeTransactionPasswordActivity" />
         <activity android:name=".activity.AddReviewActivity" />
         <activity android:name=".activity.KYCDeatilsActivity" />
         <activity android:name=".activity.KYCApplicationActivity" />
         <activity android:name=".activity.KYCProcessingActivity" />
-        <activity android:name=".activity.AddAddressActivity" />
+        <activity android:name=".activity.AddAddressActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activity.AddressListActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.ProfileDetailsActivity" />
