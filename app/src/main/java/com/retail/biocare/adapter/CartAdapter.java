@@ -56,6 +56,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
                 StaticDatas.cartDetails.get(position).setItemQty(String.valueOf(sposition+1));
                 StaticDatas.cartDetailsNew.get(position).setQuantity(String.valueOf(sposition+1));
+
+
+                StaticDatas.cartDetailsNew.get(position).setTotalamount(StaticDatas.cartDetailsNew.get (position).getPrice()*sposition+1);
+
+
                 cartQuantityChanged.OncartQuantityChanged();
             }
 

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.signature.ObjectKey;
+import com.retail.biocare.Models.CartItemModelNew;
 import com.retail.biocare.Models.CartItemsModels;
 import com.retail.biocare.R;
 import com.retail.biocare.StaticData.StaticDatas;
@@ -75,7 +76,7 @@ public class ItemDescriptionActivity extends AppCompatActivity implements Quanti
 
          */
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         intentImage = intent.getStringExtra("itemImage");
         intentIteName = intent.getStringExtra("itemName");
@@ -131,6 +132,8 @@ public class ItemDescriptionActivity extends AppCompatActivity implements Quanti
                 else {
                     StaticDatas.addedItemIds.add(intentItemId);
                     StaticDatas.cartDetails.add(new CartItemsModels(intentItemId, intentIteName, String.valueOf(itemCount), intentPrice, floatPrice, floatTax, floatShipping ));
+                   // StaticDatas.cartDetailsNew.add(new CartItemModelNew("0", StaticDatas.userProfileData.get("CustomerID"), itemDetails.get(position).getItemId(), itemDetails.get(position).getItemColor(), "1", itemDetails.get(position).getItemSize(),  Float.parseFloat(itemDetails.get(position).getMrpprice1()),  Float.parseFloat(itemDetails.get(position).getMrpprice1()), Float.parseFloat(itemDetails.get(position).getItemTax())   , Float.parseFloat(itemDetails.get(position).getShipcharges1())));
+                    StaticDatas.cartDetailsNew.add(new CartItemModelNew("0",StaticDatas.userProfileData.get("CustomerID"),intentItemId, intent.getStringExtra("itemColor"), String.valueOf(itemCount), intent.getStringExtra("itemSize"),floatPrice , floatPrice, floatTax, floatShipping ));
                     Toast.makeText(ItemDescriptionActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
                     finish();
                 }

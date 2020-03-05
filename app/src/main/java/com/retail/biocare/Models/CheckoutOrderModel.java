@@ -2,6 +2,34 @@ package com.retail.biocare.Models;
 
 public class CheckoutOrderModel {
 
+    /*
+
+     cmd.Parameters.AddWithValue("@customerid ", Convert.ToInt32(dtOrder.Rows[0]["customerid"]));
+            cmd.Parameters.AddWithValue("@uniqueid", Convert.ToString(dtOrder.Rows[0]["uniqueid"]));
+            cmd.Parameters.AddWithValue("@billname", Convert.ToString(dtOrder.Rows[0]["billname"]));
+            cmd.Parameters.AddWithValue("@billphone", Convert.ToString(dtOrder.Rows[0]["billphone"]));
+            cmd.Parameters.AddWithValue("@billemail", Convert.ToString(dtOrder.Rows[0]["billemail"]));
+            cmd.Parameters.AddWithValue("@billadd1", Convert.ToString(dtOrder.Rows[0]["billadd1"]));
+            cmd.Parameters.AddWithValue("@billadd2", Convert.ToString(dtOrder.Rows[0]["billadd2"]));
+            cmd.Parameters.AddWithValue("@billcity", Convert.ToString(dtOrder.Rows[0]["billcity"]));
+            cmd.Parameters.AddWithValue("@billstate", Convert.ToString(dtOrder.Rows[0]["billstate"]));
+            cmd.Parameters.AddWithValue("@billcountry", Convert.ToString(dtOrder.Rows[0]["billcountry"]));
+            cmd.Parameters.AddWithValue("@billzipcode", Convert.ToString(dtOrder.Rows[0]["billzipcode"]));
+            cmd.Parameters.AddWithValue("@shipname", Convert.ToString(dtOrder.Rows[0]["shipname"]));
+            cmd.Parameters.AddWithValue("@shipphone", Convert.ToString(dtOrder.Rows[0]["shipphone"]));
+            cmd.Parameters.AddWithValue("@shipemail", Convert.ToString(dtOrder.Rows[0]["shipemail"]));
+            cmd.Parameters.AddWithValue("@shipadd1", Convert.ToString(dtOrder.Rows[0]["shipadd1"]));
+            cmd.Parameters.AddWithValue("@shipadd2", Convert.ToString(dtOrder.Rows[0]["shipadd2"]));
+            cmd.Parameters.AddWithValue("@shipcity", Convert.ToString(dtOrder.Rows[0]["shipcity"]));
+            cmd.Parameters.AddWithValue("@shipstate", Convert.ToString(dtOrder.Rows[0]["shipstate"]));
+            cmd.Parameters.AddWithValue("@shipcountry", Convert.ToString(dtOrder.Rows[0]["shipcountry"]));
+            cmd.Parameters.AddWithValue("@shipzipcode", Convert.ToString(dtOrder.Rows[0]["shipzipcode"]));
+            cmd.Parameters.AddWithValue("@comments", Convert.ToString(dtOrder.Rows[0]["comments"]));
+            cmd.Parameters.AddWithValue("@paymentmethod", Convert.ToString(dtOrder.Rows[0]["paymentmethod"]));
+
+     */
+
+
     private String customerid, uniqueid, billname, billphone, billemail, billadd1, billadd2, billcity, billstate, billcountry, billzipcode, shipname, shipphone, shipemail, shipadd1, shipadd2, shipcity, shipstate, shipcountry, shipzipcode, comments, paymentmethod;
 
     public CheckoutOrderModel(String customerid, String uniqueid, String billname, String billphone, String billemail, String billadd1, String billadd2, String billcity, String billstate, String billcountry, String billzipcode, String shipname, String shipphone, String shipemail, String shipadd1, String shipadd2, String shipcity, String shipstate, String shipcountry, String shipzipcode, String comments, String paymentmethod) {

@@ -3,6 +3,7 @@ package com.retail.biocare.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -26,6 +27,8 @@ public class ViewCartActivity extends AppCompatActivity implements CartQuantityC
     private ArrayList<CartItemsModels> cartItems = new ArrayList<>();
     private TextView txtTotalcost, txtSubtotal, txtSalesTax, txtDeliverycharge, txtTotal;
 
+    private EditText txtComments;
+
     CartQuantityChanged cartQuantityChanged;
 
     @Override
@@ -40,6 +43,7 @@ public class ViewCartActivity extends AppCompatActivity implements CartQuantityC
         txtSalesTax = findViewById(R.id.txtSalesTax);
         txtDeliverycharge = findViewById(R.id.txtDeliverycharge);
         txtTotal = findViewById(R.id.txtTotal);
+        txtComments = findViewById(R.id.txtComments);
 
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +63,7 @@ public class ViewCartActivity extends AppCompatActivity implements CartQuantityC
 
                 }
 
+                StaticDatas.cartComments = String.valueOf(txtComments.getText());
                 //startActivity(new Intent(ViewCartActivity.this, CheckoutActivity.class));
                 startActivity(new Intent(ViewCartActivity.this, BillingActivity.class));
             }
@@ -71,12 +76,10 @@ public class ViewCartActivity extends AppCompatActivity implements CartQuantityC
     }
 
     private void initRecycler() {
-
         RecyclerView recyclerView = findViewById(R.id.recyclerCartItems);
         cartAdapter = new CartAdapter(this, cartQuantityChanged);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(cartAdapter);
-
     }
 
     @Override

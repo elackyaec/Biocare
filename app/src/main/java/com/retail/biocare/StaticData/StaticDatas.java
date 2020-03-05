@@ -33,6 +33,9 @@ public class StaticDatas {
     public static ArrayList<CartItemsModels> cartDetails = new ArrayList<>();
     public static ArrayList<CartItemModelNew> cartDetailsNew = new ArrayList<>();
     public static ArrayList<String> addedItemIds = new ArrayList<>();
+    public static String cartComments="";
+
+
 
     //OrderSummary
     public static ArrayList<OrderSummaryModel> orderSummaryDetails = new ArrayList<>();

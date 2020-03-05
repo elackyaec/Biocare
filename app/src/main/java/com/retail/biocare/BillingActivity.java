@@ -156,7 +156,20 @@ public class BillingActivity extends AppCompatActivity {
             txtBillingZipcode.setError("Required");
         }
         else {
-            startActivity(new Intent(BillingActivity.this, CheckoutActivity.class));
+            Intent intent = new Intent(BillingActivity.this, CheckoutActivity.class);
+
+            intent.putExtra("billName", billingName);
+            intent.putExtra("billphone", billingPhone);
+            intent.putExtra("billEmail", billingEmail);
+            intent.putExtra("billadd1", billingAddress);
+            intent.putExtra("billadd2", billingAddress);
+            intent.putExtra("billCity", billingCity);
+            intent.putExtra("billState", billingState);
+            intent.putExtra("billZipCode", billingZipCode);
+            intent.putExtra("billEmail", billingEmail);
+            intent.putExtra("billCountry", "91");
+
+            startActivity(intent);
         }
 
     }

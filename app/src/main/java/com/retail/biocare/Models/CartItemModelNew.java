@@ -72,4 +72,8 @@ public class CartItemModelNew {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
+
+    public void setTotalamount(float totalamount) {
+        this.totalamount = totalamount;
+    }
 }
