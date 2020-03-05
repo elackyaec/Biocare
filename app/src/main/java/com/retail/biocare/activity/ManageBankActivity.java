@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.retail.biocare.StaticData.StaticDatas.bankDetailsMap;
+import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
 
 public class ManageBankActivity extends AppCompatActivity {
 
@@ -34,11 +35,14 @@ public class ManageBankActivity extends AppCompatActivity {
     private TextView txtAccountType;
     private TextView txtIFSC;
     private TextView txtEmail;
-
+    float floatmat,floatbal;
+    TextView txtTotal;
+    String balance,pwd;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_details);
+        txtTotal=(TextView)findViewById(R.id.txt_total);
 
         findViewById(R.id.imgBack).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +57,12 @@ public class ManageBankActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        findViewById(R.id.btnupdate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         findViews();
 
 
@@ -62,6 +71,8 @@ public class ManageBankActivity extends AppCompatActivity {
 
         else
             setData();
+
+        new GetBalance().execute();
 
     }
 
@@ -86,6 +97,58 @@ public class ManageBankActivity extends AppCompatActivity {
         txtIFSC.setText(bankDetailsMap.get("BankCode"));
         txtEmail.setText(bankDetailsMap.get("Email"));
 
+    }
+    private class GetBalance extends AsyncTask<String, String, String> {
+
+        //ProgressDialog progressDialog = new ProgressDialog(ProfileDetailsActivity.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            if (s.equals("NODATA")){
+
+
+            }
+            else
+            {
+                try {
+
+                    JSONArray jsonArray = new JSONArray(s);
+                    for(int i=0;i<jsonArray.length();i++)
+                    {
+                        JSONObject c=jsonArray.getJSONObject(i);
+
+                        balance=c.getString("Balance");
+                        pwd=c.getString("TransactionPassword");
+                        float value=Float.parseFloat(balance);
+                        String s1 = String.format("%.2f", value);
+                        floatbal=Float.parseFloat(balance);
+
+                        txtTotal.setText("$"+s1);
+
+                        Log.e("PWD",pwd);
+                    }
+
+
+                } catch (Exception e) {
+                }
+
+            }
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            return new ExtractfromReply().performPost("WSMember","GetEwalletbalanceTranspwd","MemberId="+userBasicData.get("UserID"));
+        }
     }
 
 

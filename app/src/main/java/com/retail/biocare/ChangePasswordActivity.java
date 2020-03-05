@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -18,6 +19,7 @@ import com.retail.biocare.utils.ExtractfromReply;
 
 import static com.retail.biocare.StaticData.StaticDatas.loginPassword;
 import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
+import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
@@ -30,6 +32,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private String  ConfirmNewPassword, oldpassword;
 
     private String CustomerID, Password, TransactionPassword, MemberId;
+    private TextView txtName, txtuserCode;
 
 
     @Override
@@ -47,14 +50,28 @@ public class ChangePasswordActivity extends AppCompatActivity {
         txtOldPassword = findViewById(R.id.textOldPassword);
         txtNewPassword = findViewById(R.id.txtNewPassword);
         txtConfirmNewPassword = findViewById(R.id.txtConfirmNewPassword);
-
+        txtName = findViewById(R.id.txtName);
+        txtuserCode =findViewById(R.id.txtuserCode);
+        txtName.setText(userProfileData.get("Firstname"));
+        txtuserCode.setText(StaticDatas.userBasicData.get("Username"));
         findViewById(R.id.btUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validate();
             }
         });
+        findViewById(R.id.btcancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               onBackPressed();
+            }
+        });
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     private void validate() {

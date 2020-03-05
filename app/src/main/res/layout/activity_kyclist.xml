@@ -60,7 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_gravity="center"
                         android:layout_weight="1"
@@ -71,6 +71,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/minus"
+                        android:visibility="gone"
                         android:layout_gravity="center"/>
 
                 </LinearLayout>
@@ -91,7 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Submitted By"/>
@@ -101,7 +102,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -109,7 +110,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Smith"/>
@@ -126,7 +127,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Submitted On"/>
@@ -136,7 +137,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -144,7 +145,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="1525654555"/>
@@ -161,7 +162,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Checked By"/>
@@ -171,7 +172,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -179,7 +180,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="UCO"/>
@@ -196,7 +197,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Checked On"/>
@@ -206,7 +207,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -215,7 +216,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="UCBA7878"/>
@@ -232,7 +233,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Admin Note"/>
@@ -242,7 +243,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -251,7 +252,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text=""/>
@@ -269,7 +270,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Approved"/>
@@ -279,7 +280,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -288,7 +289,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text=""/>
@@ -316,7 +317,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_gravity="center"
                         android:layout_weight="1"
@@ -327,6 +328,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/add"
+                        android:visibility="gone"
                         android:layout_gravity="center"/>
 
                 </LinearLayout>
@@ -334,7 +336,7 @@
                     android:id="@+id/personalinfolayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -348,7 +350,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="First Name"/>
@@ -358,7 +360,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -366,7 +368,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Susan"/>
@@ -383,7 +385,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Last Name"/>
@@ -393,7 +395,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -401,7 +403,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Bones"/>
@@ -418,7 +420,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Phone Number"/>
@@ -428,7 +430,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -436,7 +438,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="17/02/1998"/>
@@ -454,7 +456,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Date of Birth"/>
@@ -464,7 +466,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -472,7 +474,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="17/02/1998"/>
@@ -489,7 +491,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Gender"/>
@@ -499,7 +501,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -507,7 +509,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Female"/>
@@ -524,7 +526,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Username"/>
@@ -534,7 +536,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -542,7 +544,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:singleLine="true"
@@ -561,7 +563,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Address Line 1"/>
@@ -571,7 +573,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -579,7 +581,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Street"/>
@@ -596,7 +598,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Address Line 2"/>
@@ -606,7 +608,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -614,7 +616,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Street"/>
@@ -631,7 +633,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="State"/>
@@ -641,7 +643,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -649,7 +651,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="Street"/>
@@ -666,7 +668,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="City"/>
@@ -676,7 +678,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -684,7 +686,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="City"/>
@@ -703,7 +705,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Zip Code"/>
@@ -713,7 +715,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -721,7 +723,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="City"/>
@@ -740,7 +742,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Country"/>
@@ -750,7 +752,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -758,7 +760,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="City"/>
@@ -778,7 +780,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Wallet Type"/>
@@ -788,7 +790,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -796,7 +798,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="City"/>
@@ -815,7 +817,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Wallet Address"/>
@@ -825,7 +827,7 @@
                             android:layout_height="wrap_content"
                             android:text=":"
                             android:layout_weight="1.8"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:gravity="center"
                             android:textColor="@color/black"/>
                         <TextView
@@ -833,7 +835,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="City"/>
@@ -868,7 +870,7 @@
                         android:layout_weight="1"
                         android:text="Uploaded Documents"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageView
@@ -876,6 +878,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/add"
+                        android:visibility="gone"
                         android:layout_gravity="center"/>
 
                 </LinearLayout>
@@ -886,7 +889,7 @@
                     android:id="@+id/documentsinfolayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:visibility="visible"
 
                     android:orientation="vertical">
 
@@ -901,7 +904,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Passport:"/>
@@ -928,7 +931,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:layout_gravity="center"
                             android:layout_weight="1.5"
                             android:text="Passport Photo:"/>
@@ -961,7 +964,7 @@
                             android:layout_weight="1.5"
                             android:text="Passport:"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
 
                             android:textStyle="bold" />
 
@@ -997,7 +1000,7 @@
                             android:layout_weight="1.5"
                             android:text="Passport Photo:"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
 
                             android:textStyle="bold" />
 
@@ -1033,7 +1036,7 @@
                             android:layout_weight="1.5"
                             android:text="ID Front Side"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
 
                             android:textStyle="bold" />
 
@@ -1069,7 +1072,7 @@
                             android:layout_weight="1.5"
                             android:text="ID Back Side"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
 
                             android:textStyle="bold" />
 
@@ -1105,7 +1108,7 @@
                             android:layout_weight="1.5"
                             android:text="National Photo"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
 
                             android:textStyle="bold" />
 
@@ -1141,7 +1144,7 @@
                             android:layout_weight="1.5"
                             android:text="Driver Photo"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
 
                             android:textStyle="bold" />
 

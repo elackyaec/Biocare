@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -14,15 +15,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 import com.retail.biocare.Models.TransactionModels;
 import com.retail.biocare.R;
+import com.retail.biocare.StaticData.StaticDatas;
 import com.retail.biocare.utils.ExtractfromReply;
 
 import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
+import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
 
 public class ChangeTransactionPasswordActivity extends AppCompatActivity {
 
     private static final String TAG = "ChangeTransactionPasswo";
 
     private EditText txtNewPassword, txtConfirmNewPassword;
+    private TextView txtName, txtuserCode;
 
     TransactionModels transactionModels;
 
@@ -45,7 +49,17 @@ public class ChangeTransactionPasswordActivity extends AppCompatActivity {
 
         txtNewPassword = findViewById(R.id.txtNewPassword);
         txtConfirmNewPassword = findViewById(R.id.txtConfirmNewPassword);
+        txtName = findViewById(R.id.txtName);
+        txtuserCode =findViewById(R.id.txtuserCode);
+        txtName.setText(userProfileData.get("Firstname"));
+        txtuserCode.setText(StaticDatas.userBasicData.get("Username"));
 
+        findViewById(R.id.btncancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         findViewById(R.id.btnUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +102,11 @@ public class ChangeTransactionPasswordActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     private class UpdateTransactionPassword extends AsyncTask<String, String, String>{
 

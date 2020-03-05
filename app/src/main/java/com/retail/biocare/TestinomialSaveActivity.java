@@ -32,6 +32,8 @@ import com.retail.biocare.utils.ExtractfromReply;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
+
 public class TestinomialSaveActivity extends AppCompatActivity {
 
     private static final String TAG = "TestinomialSaveActivity";
@@ -42,6 +44,7 @@ public class TestinomialSaveActivity extends AppCompatActivity {
 
     private EditText txtTitle, txtTestinomialDescription;
     private Button btnSendTestinomial;
+    private TextView txtName, txtuserCode;
 
     private Uri uri;
     private Bitmap bitmap;
@@ -62,7 +65,10 @@ public class TestinomialSaveActivity extends AppCompatActivity {
         txtTestinomialDescription = findViewById(R.id.txtTestinomialDescription);
         btnSendTestinomial = findViewById(R.id.btnSendTestinomial);
         imgImage = findViewById(R.id.imgImage);
-
+        txtName = findViewById(R.id.txtName);
+        txtuserCode =findViewById(R.id.txtuserCode);
+        txtName.setText(userProfileData.get("Firstname"));
+        txtuserCode.setText(StaticDatas.userBasicData.get("Username"));
         findViewById(R.id.img_camera).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +77,14 @@ public class TestinomialSaveActivity extends AppCompatActivity {
 
             }
         });
+        findViewById(R.id.btncancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                onBackPressed();
+
+            }
+        });
         btnSendTestinomial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +120,12 @@ public class TestinomialSaveActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     private void setVerifiedDialog() {
