@@ -102,7 +102,8 @@ public class FragmentCompletedOrders extends Fragment {
                         paymentType = c.getString("PaymentMethod");
                         orderAmount = c.getString("Total");
 
-                        if (orderStatus.equalsIgnoreCase("Completed") || orderStatus.equalsIgnoreCase("Delivered"))
+                        //if (orderStatus.equalsIgnoreCase("Completed") || orderStatus.equalsIgnoreCase("Delivered"))
+                        if (orderStatus.equalsIgnoreCase("Delivered"))
                             completedOrderModel.add(new CompletedOrderModel(orderId, userName, userId, userAddress, orderDate, orderStatus, itemCount, paymentType, orderAmount));
 
                     }

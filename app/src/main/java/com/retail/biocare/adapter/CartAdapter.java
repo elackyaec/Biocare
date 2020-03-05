@@ -55,6 +55,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             public void onItemSelected(AdapterView<?> parent, View view, int sposition, long id) {
 
                 StaticDatas.cartDetails.get(position).setItemQty(String.valueOf(sposition+1));
+                StaticDatas.cartDetailsNew.get(position).setQuantity(String.valueOf(sposition+1));
                 cartQuantityChanged.OncartQuantityChanged();
             }
 

@@ -312,7 +312,7 @@
                         android:textAlignment="center"
                         android:layout_weight="1"
                         android:layout_marginTop="5dp"
-                        android:text="My Order Details"/>
+                        android:text="My Orders"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -349,7 +349,7 @@
                         android:textAlignment="center"
                         android:layout_weight="1"
                         android:layout_marginTop="5dp"
-                        android:text="Delivered"/>
+                        android:text="Completed"/>
                 </LinearLayout>
 
 

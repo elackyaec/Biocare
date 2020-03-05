@@ -18,7 +18,7 @@ import static com.retail.biocare.StaticData.StaticDatas.userProfileData;
 
 public class BillingActivity extends AppCompatActivity {
 
-    private TextView txtNameMobile, txtAddressLine1, txtAddressLine2, txtAddress3;
+    private TextView txtNameMobile, txtAddressLine1, txtAddressLine2, txtAddress3, lblEdit;
 
     private String name, mobile, address1, address2, street, city, zip, email;
 
@@ -38,6 +38,7 @@ public class BillingActivity extends AppCompatActivity {
         txtAddress3 = findViewById(R.id.txtAddress3);
         chkSameCheckBox = findViewById(R.id.chkSameCheckBox);
         layoutBillingAddress = findViewById(R.id.layoutBillingAddress);
+        lblEdit = findViewById(R.id.lblEdit);
 
 
         txtFullName = findViewById(R.id.txtFullName);
@@ -85,6 +86,31 @@ public class BillingActivity extends AppCompatActivity {
         });
 
         setdata();
+
+        lblEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+/*
+                name = userBasicData.get("Name");
+                mobile = userBasicData.get("Mobile");
+                address1 = userProfileData.get("AddressLine1");
+                address2 = userProfileData.get("AddressLine2");
+                street = userProfileData.get("City");
+                city = userProfileData.get("City");
+                zip = userProfileData.get("Zipcode");
+                email = userProfileData.get("Email");
+*/
+                txtFullName.setText(name);
+                txtBillingEmail.setText(email);
+                txtBillingPhone.setText(mobile);
+                txtBillingAddress1.setText(address1);
+                txtBillingCity.setText(city);
+                txtBillingState.setText(userProfileData.get("State"));
+                txtBillingZipcode.setText(zip);
+
+
+            }
+        });
 
     }
 

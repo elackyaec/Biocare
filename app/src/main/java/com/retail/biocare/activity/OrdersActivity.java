@@ -2,6 +2,7 @@ package com.retail.biocare.activity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,15 @@ public class OrdersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
 
+        findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+
         TabLayout tabLayout = findViewById(R.id.tabOrders);
         ViewPager viewPager = findViewById(R.id.viewpagerOrders);
         OrdersViewOager ordersViewOager = new OrdersViewOager(getSupportFragmentManager());
@@ -33,7 +43,7 @@ public class OrdersActivity extends AppCompatActivity {
 
     private class OrdersViewOager extends FragmentPagerAdapter {
 
-        private String[] tabTitles = {"Pending", "Completed"};
+        private String[] tabTitles = {"Pending", "Delivered"};
 
         public OrdersViewOager(FragmentManager fm) {
             super(fm);

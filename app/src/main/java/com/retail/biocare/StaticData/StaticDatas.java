@@ -1,5 +1,6 @@
 package com.retail.biocare.StaticData;
 
+import com.retail.biocare.Models.CartItemModelNew;
 import com.retail.biocare.Models.CartItemsModels;
 import com.retail.biocare.Models.OrderSummaryModel;
 
@@ -30,6 +31,7 @@ public class StaticDatas {
 
     //Cart Array
     public static ArrayList<CartItemsModels> cartDetails = new ArrayList<>();
+    public static ArrayList<CartItemModelNew> cartDetailsNew = new ArrayList<>();
     public static ArrayList<String> addedItemIds = new ArrayList<>();
 
     //OrderSummary

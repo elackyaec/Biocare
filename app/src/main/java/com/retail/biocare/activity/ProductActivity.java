@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.retail.biocare.Models.CategoryItemModels;
 import com.retail.biocare.R;
+import com.retail.biocare.StaticData.StaticDatas;
 import com.retail.biocare.adapter.ProductsRecyclerAdapter;
 import com.retail.biocare.utils.ExtractfromReply;
 
@@ -24,12 +26,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static com.retail.biocare.StaticData.StaticDatas.userBasicData;
+
 public class ProductActivity extends AppCompatActivity {
 
     private static final String TAG = "ProductActivity";
 
     private ArrayList<CategoryItemModels>  productsDetails = new ArrayList<>();
     private ProductsRecyclerAdapter productsRecyclerAdapter;
+    private TextView txtBalance;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +55,10 @@ public class ProductActivity extends AppCompatActivity {
                 startActivity(new Intent(ProductActivity.this, ViewCartActivity.class));
             }
         });
+
+        txtBalance = findViewById(R.id.txtBalance);
+        txtBalance.setText(userBasicData.get("Currency") + StaticDatas.AvailableBalance);
+
 
         initRecycler();
         setData();

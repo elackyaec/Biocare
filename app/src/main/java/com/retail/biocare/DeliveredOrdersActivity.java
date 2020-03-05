@@ -98,7 +98,7 @@ public class DeliveredOrdersActivity extends AppCompatActivity {
                         paymentType = c.getString("PaymentMethod");
                         orderAmount = c.getString("Total");
 
-                        if (orderStatus.equalsIgnoreCase("Delivered"))
+                        if (orderStatus.equalsIgnoreCase("Completed"))
                             deliveredOrderDetails.add(new CompletedOrderModel(orderId, userName, userId, userAddress, orderDate, orderStatus, itemCount, paymentType, orderAmount));
 
                     }
