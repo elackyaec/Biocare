@@ -1,5 +1,6 @@
 package com.retail.biocare;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -169,8 +170,20 @@ public class BillingActivity extends AppCompatActivity {
             intent.putExtra("billEmail", billingEmail);
             intent.putExtra("billCountry", "91");
 
-            startActivity(intent);
+            startActivityForResult(intent,2601);
         }
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == 2601) {
+                setResult(2601);
+                finish();
+            }
 
     }
 

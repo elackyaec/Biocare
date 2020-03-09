@@ -63,11 +63,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     BottomNavigationView bottomNavigationView;
     TextView txtTitle;
 
+    private TextView txtNavName, txtEmail;
+
 
 
     List<ClassLeftDrawer> rowItems;
 
-    public static final Integer[] images = {R.drawable.receipt_png, R.drawable.messages_png, R.drawable.purchases_png, R.drawable.income_png, R.drawable.shutdown_icon};
+    //public static final Integer[] images = {R.drawable.receipt_png, R.drawable.messages_png, R.drawable.purchases_png, R.drawable.income_png, R.drawable.shutdown_icon};
+    public static final Integer[] images = {R.drawable.receipt_new, R.drawable.messages_new, R.drawable.shopping_new, R.drawable.reports_new, R.drawable.logout_new};
     ListView lstNave;
     private ActionBarDrawerToggle mDrawerToggle;
     public static String[] titles = {"Receipts", "Messages", "Purchases", "Reports", "Logout"};
@@ -97,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         drawerLayoutNew = (DrawerLayout) findViewById(R.id.drawer_layout_new);
         relativeLayoutMenu = (RelativeLayout) findViewById(R.id.relativemenu);
 
+        txtNavName = drawerLayoutNew.findViewById(R.id.txtNavName);
+        txtEmail = drawerLayoutNew.findViewById(R.id.txtEmail);
 
         profileUpdated=this;
         profileUpdated.onProfileUpdated();
@@ -398,6 +403,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 userProfileData.put("Customername",c.getString("Customername"));
                 userProfileData.put("ProfilePhoto",c.getString("photo"));
                 userProfileData.put("Email",c.getString("Email"));
+
+                txtNavName.setText("Welcome "+userProfileData.get("Firstname"));
+                txtEmail.setText(c.getString("Email"));
 
 
                 try {

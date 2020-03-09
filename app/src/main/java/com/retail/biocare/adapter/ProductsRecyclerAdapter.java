@@ -79,9 +79,21 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<ProductsRecycl
                 }
                 else {
                     StaticDatas.addedItemIds.add(itemDetails.get(position).getItemId());
+
+                    float totalAmount = Float.parseFloat(itemDetails.get(position).getMrpprice1());
+
                     StaticDatas.cartDetails.add(new CartItemsModels(itemDetails.get(position).getItemId(), itemDetails.get(position).getItemName(), "1", itemDetails.get(position).getItemPrice(), Float.parseFloat(itemDetails.get(position).getMrpprice1()) , Float.parseFloat(itemDetails.get(position).getItemTax())   , Float.parseFloat(itemDetails.get(position).getShipcharges1())));
-                    StaticDatas.cartDetailsNew.add(new CartItemModelNew("0", StaticDatas.userProfileData.get("CustomerID"), itemDetails.get(position).getItemId(), itemDetails.get(position).getItemColor(), "1", itemDetails.get(position).getItemSize(),  Float.parseFloat(itemDetails.get(position).getMrpprice1()),  Float.parseFloat(itemDetails.get(position).getMrpprice1()), Float.parseFloat(itemDetails.get(position).getItemTax())   , Float.parseFloat(itemDetails.get(position).getShipcharges1())));
-                    Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
+                    StaticDatas.cartDetailsNew.add(new CartItemModelNew(StaticDatas.userProfileData.get("CustomerID"),
+                            itemDetails.get(position).getItemId(),
+                            itemDetails.get(position).getItemColor(),
+                            "1",
+                            itemDetails.get(position).getItemSize(),
+                            Float.parseFloat(itemDetails.get(position).getMrpprice1()),
+                            Float.parseFloat(itemDetails.get(position).getMrpprice1()),
+                            Float.parseFloat(itemDetails.get(position).getItemTax())   ,
+                            Float.parseFloat(itemDetails.get(position).getShipcharges1())
+                            ));
+                    Toast.makeText(context, "Added to Cart"+itemDetails.get(position).getMrpprice1(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

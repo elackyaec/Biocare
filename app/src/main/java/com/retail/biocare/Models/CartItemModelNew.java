@@ -13,11 +13,10 @@ cmd.Parameters.AddWithValue("@orderid", Convert.ToInt32(orderid));
  */
 public class CartItemModelNew {
 
-    private String orderid, customerid, productid, color, quantity,  size ;
+    private String  customerid, productid, color, quantity,  size;
     private float totalamount, price, tax, shipcharges;
 
-    public CartItemModelNew(String orderid, String customerid, String productid, String color, String quantity, String size, float totalamount, float price, float tax, float shipcharges) {
-        this.orderid = orderid;
+    public CartItemModelNew(String customerid, String productid, String color, String quantity, String size, float totalamount, float price, float tax, float shipcharges) {
         this.customerid = customerid;
         this.productid = productid;
         this.color = color;
@@ -29,9 +28,7 @@ public class CartItemModelNew {
         this.shipcharges = shipcharges;
     }
 
-    public String getOrderid() {
-        return orderid;
-    }
+
 
     public String getCustomerid() {
         return customerid;
@@ -76,4 +73,5 @@ public class CartItemModelNew {
     public void setTotalamount(float totalamount) {
         this.totalamount = totalamount;
     }
+
 }

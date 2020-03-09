@@ -65,13 +65,22 @@ public class ViewCartActivity extends AppCompatActivity implements CartQuantityC
 
                 StaticDatas.cartComments = String.valueOf(txtComments.getText());
                 //startActivity(new Intent(ViewCartActivity.this, CheckoutActivity.class));
-                startActivity(new Intent(ViewCartActivity.this, BillingActivity.class));
+                startActivityForResult(new Intent(ViewCartActivity.this, BillingActivity.class),2601);
             }
         });
 
         initRecycler();
 
         cartQuantityChanged.OncartQuantityChanged();
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == 2601)
+            finish();
 
     }
 

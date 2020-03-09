@@ -133,7 +133,7 @@ public class ItemDescriptionActivity extends AppCompatActivity implements Quanti
                     StaticDatas.addedItemIds.add(intentItemId);
                     StaticDatas.cartDetails.add(new CartItemsModels(intentItemId, intentIteName, String.valueOf(itemCount), intentPrice, floatPrice, floatTax, floatShipping ));
                    // StaticDatas.cartDetailsNew.add(new CartItemModelNew("0", StaticDatas.userProfileData.get("CustomerID"), itemDetails.get(position).getItemId(), itemDetails.get(position).getItemColor(), "1", itemDetails.get(position).getItemSize(),  Float.parseFloat(itemDetails.get(position).getMrpprice1()),  Float.parseFloat(itemDetails.get(position).getMrpprice1()), Float.parseFloat(itemDetails.get(position).getItemTax())   , Float.parseFloat(itemDetails.get(position).getShipcharges1())));
-                    StaticDatas.cartDetailsNew.add(new CartItemModelNew("0",StaticDatas.userProfileData.get("CustomerID"),intentItemId, intent.getStringExtra("itemColor"), String.valueOf(itemCount), intent.getStringExtra("itemSize"),floatPrice , floatPrice, floatTax, floatShipping ));
+                    StaticDatas.cartDetailsNew.add(new CartItemModelNew(StaticDatas.userProfileData.get("CustomerID"),intentItemId, intent.getStringExtra("itemColor"), String.valueOf(itemCount), intent.getStringExtra("itemSize"),floatPrice , floatPrice, floatTax, floatShipping));
                     Toast.makeText(ItemDescriptionActivity.this, "Added to Cart", Toast.LENGTH_SHORT).show();
                     finish();
                 }

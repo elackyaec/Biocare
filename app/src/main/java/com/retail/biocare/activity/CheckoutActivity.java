@@ -136,6 +136,9 @@ public class CheckoutActivity extends AppCompatActivity {
                 ))+"]";
 
         String jsonCartItems = new Gson().toJson(StaticDatas.cartDetailsNew);
+
+        Log.d(TAG, "preProcess: tempp: "+StaticDatas.cartDetailsNew.get(0).getTotalamount());
+
         Log.d(TAG, "preProcess: jsonCartItems: "+ jsonCartItems);
 
         Log.d(TAG, "preProcess: jsonUserDetails: "+jsonCustomerOrderDetails);
@@ -199,6 +202,21 @@ public class CheckoutActivity extends AppCompatActivity {
             progressDialog.dismiss();
 
             Log.d(TAG, "onPostExecute: Response: "+s);
+
+            if (s.equalsIgnoreCase("0"))
+                Toast.makeText(CheckoutActivity.this, "Failed to place order", Toast.LENGTH_SHORT).show();
+            else {
+
+                    StaticDatas.cartDetails.clear();
+                    StaticDatas.cartDetailsNew.clear();
+                    StaticDatas.addedItemIds.clear();
+                    StaticDatas.cartComments="";
+
+                    setResult(2601);
+                    finish();
+
+
+            }
 
         }
 
